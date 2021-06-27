@@ -2,8 +2,12 @@
 Microphone-based breath tracking for the web! Made during the XR Brain Jam.
 
 ## Usage
+`npm i breathcapture`
+
 ```
 //How to use
+
+import {BreathCapture} from BreathCapture
 
 let Capture = new BreathCapture(); //Create class instance
 Capture.analyze();                 //Begin the analysis loop
