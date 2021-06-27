@@ -20,7 +20,7 @@ Capture.calibrate();
 
 //Outputs captured in this object as arrays
 //More fine grained data are in the class
-
+/*
 Capture.output === {
     belowThreshold: false,              //Are the detected breathing peaks below the mean threshold (too quiet?) //bool
     isHolding: false,                   //Is the user between an in and out breath?     //bool
@@ -38,5 +38,6 @@ Capture.output === {
     slowSmoothedVolume: this.audSumSmoothedSlow,
     longSmoothedVolume: this.audSumSmoothedLong
 };
+*/
 
 ```
