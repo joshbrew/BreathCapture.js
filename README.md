@@ -2,10 +2,12 @@
 Microphone-based breath tracking for the web! Made during the XR Brain Jam.
 
 ## Usage
+
+With latest Node LTS installed
 `npm i breathcapture`
 
 ```
-//How to use
+//How to use in npm projects
 
 import {BreathCapture} from BreathCapture
 
