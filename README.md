@@ -1,9 +1,15 @@
 # BreathCapture.js
-Microphone-based breath tracking for the web! Made during the XR Brain Jam.
+Microphone-based breath tracking for the web! Made during the XR Brain Jam. Featured at https://app.brainsatplay.com
 
 ## Usage
+
+With latest Node LTS installed
+`npm i breathcapture`
+
 ```
-//How to use
+//How to use in npm projects
+
+import {BreathCapture} from BreathCapture
 
 let Capture = new BreathCapture(); //Create class instance
 Capture.analyze();                 //Begin the analysis loop
@@ -14,7 +20,7 @@ Capture.calibrate();
 
 //Outputs captured in this object as arrays
 //More fine grained data are in the class
-
+/*
 Capture.output === {
     belowThreshold: false,              //Are the detected breathing peaks below the mean threshold (too quiet?) //bool
     isHolding: false,                   //Is the user between an in and out breath?     //bool
@@ -32,5 +38,6 @@ Capture.output === {
     slowSmoothedVolume: this.audSumSmoothedSlow,
     longSmoothedVolume: this.audSumSmoothedLong
 };
+*/
 
 ```
