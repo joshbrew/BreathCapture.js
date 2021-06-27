@@ -1,5 +1,5 @@
 # BreathCapture.js
-Microphone-based breath tracking for the web! Made during the XR Brain Jam.
+Microphone-based breath tracking for the web! Made during the XR Brain Jam. Featured at https://app.brainsatplay.com
 
 ## Usage
 
