@@ -1,0 +1,24 @@
+{
+  "name": "breathcapture",
+  "description": "Capture breathing with your microphone on the web!",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moothyknight/BreathCapture.js.git"
+  },
+  "keywords": [
+    "Breath Capture",
+    "Microphone",
+    "Web Audio Context"
+  ],
+  "author": "Joshua Brewster <brewster.joshua1@gmail.com>",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/moothyknight/BreathCapture.js/issues"
+  },
+  "homepage": "https://github.com/moothyknight/BreathCapture.js",
+  "main": "BreathCapture.js"
+}
