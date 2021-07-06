@@ -1,6 +1,10 @@
 # BreathCapture.js
 Microphone-based breath tracking for the web! Made during the XR Brain Jam. Featured at https://app.brainsatplay.com
 
+Paper I referenced: http://www.cs.rug.nl/~aiellom/tesi/avalur
+
+To do it better, this paper added LSTM: https://dl.acm.org/doi/pdf/10.1145/3369835
+
 ## Usage
 
 With latest Node LTS installed
