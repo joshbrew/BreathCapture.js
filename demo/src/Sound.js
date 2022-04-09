@@ -66,7 +66,7 @@ export class SoundJS { //Only one Audio context at a time!
     }
   
     //Add a sound file from the app assets or a website url
-    addSounds(urlList=[''], onReady=(sourceListIdx)=>{}, onBeginDecoding=()=>{}, canAddFile=false){
+    addSounds(urlList=[''], onReady=(sourceListIdx,buffer)=>{}, onBeginDecoding=()=>{}, canAddFile=false){
       if(typeof urlList === 'string') urlList = [urlList];
       var bufferLoader = new BufferLoader(this, urlList, this.finishedLoading, onReady, onBeginDecoding)
       bufferLoader.load(canAddFile);
@@ -85,7 +85,7 @@ export class SoundJS { //Only one Audio context at a time!
     }
 
     //Get a file off the user's computer and decode it into the sound system
-    decodeLocalAudioFile(onReady=(sourceListIdx)=>{}, onBeginDecoding=()=>{}){
+    decodeLocalAudioFile(onReady=(sourceListIdx,buffer)=>{}, onBeginDecoding=()=>{}){
 
       var input = document.createElement('input');
       input.type = 'file';
@@ -103,7 +103,7 @@ export class SoundJS { //Only one Audio context at a time!
               onBeginDecoding();
               this.ctx.decodeAudioData(fileResult, (buffer) => {
                 this.finishedLoading([buffer]);
-                onReady(this.sourceList.length-1);
+                onReady(this.sourceList.length-1,buffer);
               }, (er) => {
                   console.error(er);
               });
@@ -172,6 +172,11 @@ export class SoundJS { //Only one Audio context at a time!
     setPlaybackRate(bufferIndex, rate){
       if(this.sourceList[bufferIndex])
         this.sourceList[bufferIndex].playbackRate.value = rate;
+    }
+
+    getAnalyzerData() {
+      var array = new Uint8Array(this.analyserNode.frequencyBinCount);
+      return this.analyserNode.getByteFrequencyData(array);
     }
   
     record(name = new Date().toISOString(), args={audio:true, video:false}, type=null, streamElement=null, save=false,onbegin=()=>{}){ // video settings vary e.g. video:{width:{min:1024,ideal:1280,max:1920},height:{min:576,ideal:720,max:1080}}
