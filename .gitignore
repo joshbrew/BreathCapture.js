@@ -1,2 +1,4 @@
 demo/node_modules
 demo/dist
+node_server/ssl/key.pem
+node_server/ssl/cert.pem
