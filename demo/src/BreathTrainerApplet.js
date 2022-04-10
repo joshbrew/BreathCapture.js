@@ -80,7 +80,7 @@ export class BreathTrainerApplet {
         //HTML render function, can also just be a plain template string, add the random ID to named divs so they don't cause conflicts with other UI elements
         let HTMLtemplate = (props=this.props) => { 
             return `
-            <div id='${props.id}' style='height:100%; width:100%;'>
+            <div id='${props.id}' style='height:100vh; width:100vw; background-color:#101010;'>
                 <div id='${props.id}menu'>
                     <button id='${props.id}startmic'>Start Mic</button>
                     <button id='${props.id}stopmic'>Stop Mic</button>
