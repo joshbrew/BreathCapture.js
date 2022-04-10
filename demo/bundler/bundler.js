@@ -12,7 +12,7 @@ require('esbuild').build({
     loader: {
 			'.html': 'text'
 		},
-		minify: true,
+		minify: false,
 		sourcemap: true,
   }).then((res) => {
     
