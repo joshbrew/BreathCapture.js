@@ -18,18 +18,20 @@ require('esbuild').build({
     
     let data = fs.readFileSync('dist/app.js').toString();
 
-    fs.writeFileSync('dist/app.html',`
-      <!DOCTYPE html>
-      <html>
-        <head>
-        </head>
-        <body>
-        <script>
-          ${data}
-        </script>
-        </body>
-      </html>
-    `)
+    fs.writeFileSync(
+      'dist/app.html',`
+        <!DOCTYPE html>
+        <html>
+          <head>
+          </head>
+          <body>
+          <script>
+            ${data}
+          </script>
+          </body>
+        </html>
+      `
+    );
 
     //console.log(data);
     // for(let out of res.outputFiles) {
