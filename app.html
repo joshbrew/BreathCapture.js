@@ -5,16 +5,2379 @@
           </head>
           <body>
           <script>
-            (()=>{var U=Object.create;var A=Object.defineProperty;var W=Object.getOwnPropertyDescriptor;var Y=Object.getOwnPropertyNames;var Z=Object.getPrototypeOf,X=Object.prototype.hasOwnProperty;var K=(c,e,t)=>e in c?A(c,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):c[e]=t;var v=(c,e)=>()=>(e||c((e={exports:{}}).exports,e),e.exports);var Q=(c,e,t,i)=>{if(e&&typeof e=="object"||typeof e=="function")for(let s of Y(e))!X.call(c,s)&&s!==t&&A(c,s,{get:()=>e[s],enumerable:!(i=W(e,s))||i.enumerable});return c};var D=(c,e,t)=>(t=c!=null?U(Z(c)):{},Q(e||!c||!c.__esModule?A(t,"default",{value:c,enumerable:!0}):t,c));var u=(c,e,t)=>(K(c,typeof e!="symbol"?e+"":e,t),t);var N=v(q=>{var ee={debug:!1,protocol:"http",host:"localhost",port:8080,socket_protocol:"ws",hotreload:5e3,python:7e3,python_node:7001,startpage:"BreathTrainer.html",errpage:"src/other/404.html",certpath:"node_server/ssl/cert.pem",keypath:"node_server/ssl/key.pem"};q.settings=ee});var G=v((fe,te)=>{te.exports='<div style="display:none">SSE Test Component (check console)</div>'});var V=v((ge,se)=>{se.exports=`<h3>Quart server test page (built from node):</h3>\r
-<br>\r
-WebSocket output:\r
-<ul></ul>`});var H=v((Te,he)=>{he.exports="<div>Hello World!</div>"});var y=class extends HTMLElement{constructor(){super();u(this,"template",t=>`<div> Custom Fragment Props: ${JSON.stringify(t)} </div>`);u(this,"props",{test:!0});u(this,"useShadow",!1);u(this,"oncreate");u(this,"onresize");u(this,"ondelete");u(this,"onchanged");u(this,"FRAGMENT");u(this,"attachedShadow",!1);u(this,"obsAttributes",["props","options","onchanged","onresize","ondelete","oncreate","template"]);u(this,"delete",()=>{this.remove(),typeof this.ondelete=="function"&&this.ondelete(this.props)});u(this,"render",(t=this.props)=>{typeof this.template=="function"?this.templateString=this.template(t):this.templateString=this.template;let i=document.createElement("template");i.innerHTML=this.templateString;let s=i.content;this.FRAGMENT&&(this.useShadow?this.shadowRoot.removeChild(this.FRAGMENT):this.removeChild(this.FRAGMENT)),this.useShadow?(this.attachedShadow||this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(s),this.FRAGMENT=this.shadowRoot.childNodes[this.shadowRoot.childNodes.length-1]):this.appendChild(s),this.FRAGMENT=this.childNodes[this.childNodes.length-1],this.oncreate&&this.oncreate(t)});u(this,"state",{pushToState:{},data:{},triggers:{},setState(t){if(Object.assign(this.pushToState,t),Object.keys(this.triggers).length>0)for(let i of Object.getOwnPropertyNames(this.triggers))this.pushToState[i]&&(this.data[i]=this.pushToState[i],delete this.pushToState[i],this.triggers[i].forEach(s=>{s.onchanged(this.data[i])}));return this.pushToState},subscribeTrigger(t,i=s=>{}){if(t){this.triggers[t]||(this.triggers[t]=[]);let s=this.triggers[t].length;return this.triggers[t].push({idx:s,onchanged:i}),this.triggers[t].length-1}else return},unsubscribeTrigger(t,i){let s,n=this.triggers[t];if(n)if(!i)delete this.triggers[t];else return n.find(o=>{if(o.idx===i)return!0})&&n.splice(s,1),!0},subscribeTriggerOnce(t=void 0,i=s=>{}){let s,n=h=>{i(h),this.unsubscribeTrigger(t,s)};s=this.subscribeTrigger(t,n)}})}get observedAttributes(){return this.obsAttributes}get obsAttributes(){return this.obsAttributes}set obsAttributes(t){typeof t=="string"?this.obsAttributes.push(t):Array.isArray(t)&&(this.obsAttributes=t)}static get tag(){return this.name.toLowerCase()+"-"}static addElement(t=this.tag,i=this,s=void 0){b(i,t,s)}attributeChangedCallback(t,i,s){if(t==="onchanged"){let n=s;if(typeof n=="string"&&(n=S(n)),typeof n=="function"){this.onchanged=n,this.state.data.props=this.props,this.state.unsubscribeTrigger("props"),this.state.subscribeTrigger("props",this.onchanged);let h=new CustomEvent("changed",{detail:{props:this.props}});this.state.subscribeTrigger("props",()=>{this.dispatchEvent(h)})}}else if(t==="onresize"){let n=s;if(typeof n=="string"&&(n=S(n)),typeof n=="function"){if(this.ONRESIZE)try{window.removeEventListener("resize",this.ONRESIZE)}catch{}this.ONRESIZE=h=>{this.onresize(this.props)},this.onresize=n,window.addEventListener("resize",this.ONRESIZE)}}else if(t==="ondelete"){let n=s;typeof n=="string"&&(n=S(n)),typeof n=="function"&&(this.ondelete=()=>{this.ONRESIZE&&window.removeEventListener("resize",this.ONRESIZE),this.state.unsubscribeTrigger("props"),n&&n(this.props)})}else if(t==="oncreate"){let n=s;typeof n=="string"&&(n=S(n)),typeof n=="function"&&(this.oncreate=n)}else if(t==="props"){let n=s;typeof n=="string"&&(n=JSON.parse(n)),Object.assign(this.props,n),this.state.setState({props:this.props})}else if(t==="template"){let n=s;this.template=options.template,typeof n=="function"?this.templateString=this.template(this.props):this.templateString=n,this.render(this.props);let h=new CustomEvent("created",{detail:{props:this.props}});this.dispatchEvent(h)}else{let n=s;if(t.includes("eval_"))t=t.split("_"),t.shift(),t=t.join(),n=S(s);else if(typeof s=="string")try{n=JSON.parse(s)}catch{n=s}this[t]=n,this.props[t]=n}}connectedCallback(){let t=this.getAttribute("props");typeof t=="string"&&(t=JSON.parse(t)),Object.assign(this.props,t),this.state.setState({props:this.props}),Array.from(this.attributes).forEach(o=>{let a=o.name,r=o.value;if(a.includes("eval_"))a=a.split("_"),a.shift(),a=a.join(),r=S(o.value);else if(typeof o.value=="string")try{r=JSON.parse(o.value)}catch{r=o.value}this[a]||Object.defineProperties(this,o,{value:r,writable:!0,get(){return this[a]},set(p){this.setAttribute(a,p)}}),this[a]=r,this.props[a]=r,this.obsAttributes.push(a)});let i=new CustomEvent("resized",{detail:{props:this.props}}),s=new CustomEvent("changed",{detail:{props:this.props}}),n=new CustomEvent("deleted",{detail:{props:this.props}}),h=new CustomEvent("created",{detail:{props:this.props}});if(this.render(this.props),this.dispatchEvent(h),this.state.subscribeTrigger("props",()=>{this.dispatchEvent(s)}),typeof this.onresize=="function"){if(this.ONRESIZE)try{window.removeEventListener("resize",this.ONRESIZE)}catch{}this.ONRESIZE=o=>{this.onresize(this.props)},window.addEventListener("resize",this.ONRESIZE)}if(typeof this.ondelete=="function"){let o=this.ondelete;this.ondelete=(a=this.props)=>{this.ONRESIZE&&window.removeEventListener("resize",this.ONRESIZE),this.state.unsubscribeTrigger("props"),o(a)}}typeof this.onchanged=="function"&&(this.state.data.props=this.props,this.state.subscribeTrigger("props",this.onchanged))}get props(){return this.props}set props(t={}){this.setAttribute("props",t)}get template(){return this.template}set template(t){this.setAttribute("template",t)}get render(){return this.render}get delete(){return this.delete}get state(){return this.state}get onchanged(){return this.onchanged}set onchanged(t){this.setAttribute("onchanged",t)}get onresize(){return this.props}set onresize(t){this.setAttribute("onresize",t)}get ondelete(){return this.props}set ondelete(t){this.setAttribute("ondelete",t)}get oncreate(){return this.oncreate}set oncreate(t){this.setAttribute("oncreated",t)}};function b(c,e,t=null){try{t?e?window.customElements.define(e,c,{extends:t}):window.customElements.define(c.name.toLowerCase()+"-",c,{extends:t}):e?window.customElements.define(e,c):window.customElements.define(c.name.toLowerCase()+"-",c)}catch{}}function re(c=""){return c+Math.floor(Math.random()*1e15)}function S(method){let getFunctionBody=c=>c.replace(/^\W*(function[^{]+\{([\s\S]*)\}|[^=]+=>[^{]*\{([\s\S]*)\}|[^=]+=>(.+))/i,"$2$3$4"),getFunctionHead=c=>{let e=c.indexOf(")");return c.slice(0,c.indexOf("{",e)+1)},newFuncHead=getFunctionHead(method),newFuncBody=getFunctionBody(method),newFunc;try{if(newFuncHead.includes("function ")){let c=newFuncHead.split("(")[1].split(")")[0];newFunc=new Function(c,newFuncBody)}else if(newFuncHead.substring(0,6)===newFuncBody.substring(0,6)){let c=newFuncHead.split("(")[1].split(")")[0];newFunc=new Function(c,newFuncBody.substring(newFuncBody.indexOf("{")+1,newFuncBody.length-1))}else try{newFunc=eval(newFuncHead+newFuncBody+"}")}catch(err){newFunc=eval(method)}}catch(c){}return newFunc}var M=D(N()),ie=G(),R=class extends y{constructor(){super(...arguments);u(this,"props",{host:M.settings.host,port:M.settings.python,es:void 0});u(this,"template",ie);u(this,"oncreate",t=>{t.es=new EventSource(`http://${t.host}:${t.port}/sse`),t.es.onmessage=function(i){console.log("Event Source:",i.data)}});u(this,"ondelete",t=>{t.es.close()})}};b(R,"sse-test");var C=D(N()),ne=V(),O=class extends y{constructor(){super(...arguments);u(this,"props",{host:C.settings.host,port:C.settings.python,ws:void 0});u(this,"template",ne);u(this,"oncreate",t=>{t.ws=new WebSocket(`ws://${t.host}:${t.port}/`),t.ws.onmessage=i=>{let s=this.getElementsByTagName("ul")[0],n=document.createElement("li"),h=i.data,o=document.createTextNode(h);n.appendChild(o),s.appendChild(n)}});u(this,"ondelete",t=>{t.ws.close()})}};b(O,"socket-test");var oe=H(),L=class extends y{constructor(){super(...arguments);u(this,"props",{});u(this,"template",oe);u(this,"oncreate",t=>{console.log("Custom html component created!")});u(this,"ondelete",t=>{console.log("Custom html component deleted!")})}};L.addElement("custom-");var B=class{constructor(e=!1,t=!1){u(this,"addFunc",(e=null,t=null,i=!0)=>{var s=null;if(t!==null)if(e==null)this.listeners.forEach((h,o)=>{s=h.listener.addFunc(t),h.listener.running==!1&&i==!0&&h.listener.start()});else var n=this.listeners.find((h,o)=>{h.key===e&&(s=h.listener.addFunc(t),h.listener.running==!1&&i==!0&&h.listener.start())});return s});u(this,"getFuncs",(e=void 0)=>{if(e){var t=this.listeners.find((i,s)=>{if(i.key===e)return!0});return t.onchangeFuncs}else return});u(this,"removeFuncs",(e=null,t=null,i=!1)=>{if(e==null)this.listeners.forEach((n,h)=>{n.listener.removeFuncs(t)});else var s=this.listeners.find((n,h)=>{n.key===e&&(n.listener.removeFuncs(t),(n.listener.onchangeFuncs.length===0||i===!0)&&n.listener.stop())})});this.debug=e,this.listeners=[],this.synchronous=t,this.syncInterval="FRAMERATE",this.syncAnim=void 0,t===!0&&this.startSync()}addListener(e=null,t,i=void 0,s=void 0,n=void 0,h=this.debug,o=!0){if(t===void 0){console.error("You must assign an object");return}var a=e;a==null&&(a=Math.floor(Math.random()*1e5)),this.synchronous===!0&&(o=!1);var r={key:a,listener:new j(t,i,s,n,h,o)};this.listeners.push(r)}getListener(e){return this.listeners.find((i,s)=>{if(i.key===e)return!0})}hasKey(e){var t=!1;return this.listeners.forEach((i,s)=>{if(i.key===e)return t=!0,!0}),t}getKeyIndices(e){var t=[];return this.listeners.find((i,s)=>{i.key===e&&t.push(s)}),t}onchange(e=null,t=null){if(e==null)this.listeners.forEach((s,n)=>{s.listener.onchange=t});else var i=this.listeners.find((s,n)=>{s.name===e&&(s.listener.onchange=t)})}stop(e=null){if(this.synchronous&&this.stopSync(),e==null)this.listeners.forEach((i,s)=>{i.listener.stop()});else var t=this.listeners.find((i,s)=>{i.name===e&&i.listener.stop()})}start(e=null){if(this.synchronous&&this.stopSync(),e==null)this.listeners.forEach((i,s)=>{i.listener.start()});else var t=this.listeners.find((i,s)=>{i.name===e&&i.listener.start()})}startSync(){if(this.synchronous===!1){this.synchronous=!0,this.stop();let e=()=>{this.synchronous===!0&&(this.listeners.forEach(t=>{t.listener.check()}),this.syncInterval==="FRAMERATE"?this.syncAnim=requestAnimationFrame(e):typeof this.syncInterval=="number"&&setTimeout(e,this.syncInterval))};e()}}stopSync(){this.synchronous=!1,this.syncAnim&&cancelAnimationFrame(this.syncAnim)}remove(e=null){if(e==null)this.listeners.forEach(s=>{s.listener.stop()}),this.listeners.splice(0,this.listeners.length);else{var t=[],i=this.listeners.forEach((s,n)=>{s.key===e&&t.push(n)});t.reverse().forEach(s=>{this.listeners[s].listener.stop(),this.listeners.splice(s,1)})}}},j=class{constructor(e,t="__ANY__",i=this.onchange,s="FRAMERATE",n=!1,h=!0){u(this,"onchange",e=>{console.log(this.propName," changed from: ",this.propOld," to: ",this.object[this.propName])});u(this,"addFunc",(e=null)=>{let t=0;return e!==null&&(this.onchangeFuncs.push({idx:this.funcs,onchange:e}),t=this.funcs,this.funcs++),t});u(this,"onchangeMulti",e=>{[...this.onchangeFuncs].forEach((i,s)=>{this.debug===!0&&console.log(i.onchange),i.onchange(e)})});u(this,"setListenerRef",e=>{e==="__ANY__"||e===null||e===void 0?this.propOld=JSON.stringifyFast(this.object):Array.isArray(this.object[e])?this.propOld=JSON.stringifyFast(this.object[e].slice(this.object[e].length-20)):typeof this.object[e]=="object"?this.propOld=JSON.stringifyFast(this.object[e]):typeof this.object[e]=="function"?this.propOld=this.object[e].toString():this.propOld=this.object[e],this.debug===!0&&console.log("propname",e,", new assignment: ",this.propOld)});u(this,"check",()=>{let e=!1;if(this.propName==="__ANY__"||this.propName===null||this.propName===void 0)this.propOld!==JSON.stringifyFast(this.object)&&(this.debug===!0&&console.log("onchange: ",this.onchange),this.onchange(this.object),this.onchangeFuncs.length>0&&this.onchangeMulti(this.object),this.setListenerRef(this.propName),e=!0);else if(Array.isArray(this.object[this.propName]))this.propOld!==JSON.stringifyFast(this.object[this.propName].slice(this.object[this.propName].length-20))&&(this.debug===!0&&console.log("onchange: ",this.onchange),this.onchange(this.object[this.propName]),this.onchangeFuncs.length>0&&this.onchangeMulti(this.object[this.propName]),this.setListenerRef(this.propName),e=!0);else if(typeof this.object[this.propName]=="object"){let t=JSON.stringifyFast(this.object[this.propName]);this.propOld!==t&&(this.debug===!0&&console.log("onchange: ",this.onchange),this.onchange(this.object[this.propName]),this.onchangeFuncs.length>0&&this.onchangeMulti(this.object[this.propName]),this.setListenerRef(this.propName),e=!0)}else typeof this.object[this.propName]=="function"?this.propOld!==this.object[this.propName].toString()&&(this.debug===!0&&console.log("onchange: ",this.onchange),this.onchange(this.object[this.propName].toString()),this.onchangeFuncs.length>0&&this.onchangeMulti(this.object[this.propName].toString()),this.setListenerRef(this.propName),e=!0):this.object[this.propName]!==this.propOld&&(this.debug===!0&&console.log("onchange: ",this.onchange),this.onchange(this.object[this.propName]),this.onchangeFuncs.length>0&&this.onchangeMulti(this.object[this.propName]),this.setListenerRef(this.propName),e=!0);return this.running===!0&&(this.debug===!0&&console.log("checking",this.object,this.propName),this.interval==="FRAMERATE"?typeof window>"u"?setTimeout(()=>{this.check()},16):this.checker=requestAnimationFrame(this.check):setTimeout(()=>{this.check()},this.interval)),e});this.debug=n,this.onchange=i,this.onchangeFuncs=[],this.object=e,this.propName=t,this.propOld=void 0,this.setListenerRef(t),this.running=h,this.funcs=0,this.interval,s<10?(this.interval=10,console.log("Min recommended interval set: 10ms")):this.interval=s,h===!0&&(typeof window>"u"?setTimeout(()=>{this.check()},60):this.checker=requestAnimationFrame(this.check))}removeFuncs(e=null){let t=0;e===null?this.onchangeFuncs=[]:this.onchangeFuncs.find((i,s)=>{if(i.idx===e)return t=s,!0})!==void 0&&this.onchangeFuncs.splice(t,1)}start(){this.running=!0,typeof window>"u"?setTimeout(()=>{this.check()},16):this.checker=requestAnimationFrame(this.check)}stop(){this.running=!1,cancelAnimationFrame(this.checker)}};JSON.stringifyFast===void 0&&(JSON.stringifyFast=function(){let c=new Map,e=[],t=["this"];function i(){c.clear(),e.length=0,t.length=1}function s(h,o){var a=e.length-1;if(e[a]){var r=e[a];if(typeof r=="object")if(r[h]===o||a===0)t.push(h),e.push(o.pushed);else for(;a-->=0;){if(r=e[a],typeof r=="object"&&r[h]===o){a+=2,e.length=a,t.length=a,--a,e[a]=o,t[a]=h;break}a--}}}function n(h,o){let a;if(o!=null)if(typeof o=="object"){let r=o.constructor.name;h&&r==="Object"&&s(h,o);let p=c.get(o);if(p)return"[Circular Reference]"+p;if(c.set(o,t.join(".")),r==="Array")o.length>20?a=o.slice(o.length-20):a=o;else if(r.includes("Set"))a=Array.from(o);else if(r!=="Object"&&r!=="Number"&&r!=="String"&&r!=="Boolean")a="instanceof_"+r;else if(r==="Object"){let m={};for(let d in o)if(o[d]==null)m[d]=o[d];else if(Array.isArray(o[d]))o[d].length>20?m[d]=o[d].slice(o[d].length-20):m[d]=o[d];else if(o[d].constructor.name==="Object"){m[d]={};for(let l in o[d])if(Array.isArray(o[d][l]))o[d][l].length>20?m[d][l]=o[d][l].slice(o[d][l].length-20):m[d][l]=o[d][l];else if(o[d][l]!=null){let f=o[d][l].constructor.name;f.includes("Set")?m[d][l]=Array.from(o[d][l]):f!=="Number"&&f!=="String"&&f!=="Boolean"?m[d][l]="instanceof_"+f:m[d][l]=o[d][l]}else m[d][l]=o[d][l]}else{let l=o[d].constructor.name;l.includes("Set")?m[d]=Array.from(o[d]):l!=="Number"&&l!=="String"&&l!=="Boolean"?m[d]="instanceof_"+l:m[d]=o[d]}a=m}else a=o}else a=o;return a}return function(o,a){e.push(o);let r=JSON.stringify(o,n,a);return i(),r}}());JSON.stringifyWithCircularRefs===void 0&&(JSON.stringifyWithCircularRefs=function(){let c=new Map,e=[],t=["this"];function i(){c.clear(),e.length=0,t.length=1}function s(h,o){var a=e.length-1,r=e[a];if(r[h]===o||a===0)t.push(h),e.push(o);else for(;a-->=0;)if(r=e[a],r[h]===o){a+=2,e.length=a,t.length=a,--a,e[a]=o,t[a]=h;break}}function n(h,o){if(o!=null&&typeof o=="object"){h&&s(h,o);let a=c.get(o);if(a)return"[Circular Reference]"+a;c.set(o,t.join("."))}return o}return function(o,a){try{return e.push(o),JSON.stringify(o,n,a)}finally{i()}}}());var J=B;var P=class{constructor(e=this.templateStringGen,t=document.body,i={},s=r=>{},n=r=>{},h="NEVER",o=r=>{},a=void 0){u(this,"onchange",(e=this.renderSettings.props)=>{});u(this,"onRender",(e=this.renderSettings.props)=>{});u(this,"ondelete",(e=this.renderSettings.props)=>{});u(this,"onresize");u(this,"isElement",e=>e instanceof Element||e instanceof HTMLDocument);this.onRender=s,this.onchange=n,this.ondelete=o,this.onresize=a,this.parentNode=t,typeof t=="string"&&(this.parentNode=document.getElementById(t)),this.renderSettings={templateStringGen:e,props:i},this.props=this.renderSettings.props,this.templateString="",typeof e=="function"?this.templateString=e(i):this.templateString=e;var r=h;if(Object.keys(this.renderSettings.props).length===0&&(r="NEVER"),this.node=null,this.listener=void 0,Object.keys(this.renderSettings.props).length>0&&!(r==null||r==="NEVER")){console.log("making listeners for ",e),this.listener=new J;let p=()=>{this.updateNode()};this.listener.addListener("templateChange",this.renderSettings,"templateStringGen",p,r);let m=()=>{this.updateNode(),this.onchange()};this.listener.addListener("props",this.renderSettings,"props",m,r)}this.renderNode()}appendFragment(e,t){if(this.isElement(e))t.appendChild(e);else{var i=document.createElement("template");i.innerHTML=e;var s=i.content;t.appendChild(s)}return t.children[t.children.length-1]}deleteFragment(e,t){this.ondelete(this.renderSettings.props);var i=document.getElementById(t);e.removeChild(i)}removeParent(e){typeof this.onresize=="function"&&this.removeNodeResizing(),this.ondelete(this.renderSettings.props);var t=document.getElementById(e);t.parentNode.parentNode.removeChild(t.parentNode)}renderNode(e=this.parentNode){this.node=this.appendFragment(this.templateString,e),this.onRender(this.renderSettings.props),typeof this.onresize=="function"&&this.setNodeResizing()}setNodeResizing(){typeof this.onresize=="function"&&(window.attachEvent?window.attachEvent("onresize",this.onresize):window.addEventListener&&window.addEventListener("resize",this.onresize,!0))}removeNodeResizing(){typeof this.onresize=="function"&&(window.detachEvent?window.detachEvent("onresize",this.onresize):window.removeEventListener&&window.removeEventListener("resize",this.onresize,!0))}updateNode(e=this.parentNode,t=this.node,i=this.props){e.removeChild(t),typeof this.renderSettings.templateStringGen=="function"?this.templateString=this.renderSettings.templateStringGen(this.props):this.templateString=this.renderSettings.templateStringGen,this.renderNode(e,i)}deleteNode(e=this.node){typeof this.onresize=="function"&&this.removeNodeResizing(),typeof e=="string"?(this.ondelete(this.renderSettings.props),thisNode=document.getElementById(e),thisNode.parentNode.removeChild(thisNode),this.node=null):typeof e=="object"&&(this.ondelete(this.renderSettings.props),e&&e.parentNode.removeChild(e),this.node=null)}appendStylesheet(e="",t=this.node){if(typeof e=="string"){var i=document.createElement("link");i.rel="stylesheet",i.type="text/css",i.href=e,t.insertAdjacentElement("afterbegin",i)}else if(Array.isArray(e))e.forEach(s=>{var n=document.createElement("link");n.rel="stylesheet",n.type="text/css",n.href=s,t.insertAdjacentElement("afterbegin",n)});else if(typeof e=="function"){let s=e();t&&(typeof s=="string"?t.insertAdjacentHTML("afterbegin",s):t.insertAdjacentElement("afterbegin",s))}}};var x=class{constructor(){u(this,"finishedLoading",e=>{let t=[];return e.forEach(i=>{this.sourceList.push(this.ctx.createBufferSource());var s=this.sourceList.length-1;t.push(s);let n=this.sourceList[s];this.sourceGains.push(this.ctx.createGain());let h=this.sourceGains[s];n.buffer=i,n.onended=()=>{n.disconnect(),h.disconnect();let o=0,a=0;this.sourceList.find((r,p)=>{if(JSON.stringify(r)===JSON.stringify(n))return o=p,this.sourceList.splice(o,1),!0}),this.sourceGains.find((r,p)=>{if(JSON.stringify(r)===JSON.stringify(h))return a=p,this.sourceGains.splice(a,1),!0})},n.connect(h),h.connect(this.gainNode)}),t});window.AudioContext=window.AudioContext||window.webkitAudioContext||window.mozAudioContext||window.msAudioContext,this.ctx=null;try{this.ctx=new AudioContext}catch(e){alert("Your browser does not support AudioContext!"),console.log(e)}this.sourceList=[],this.sourceGains=[],this.recordedData=[],this.recorder=null,this.buffer=[],this.osc=[],this.gainNode=this.ctx.createGain(),this.analyserNode=this.ctx.createAnalyser(),this.out=this.ctx.destination,this.gainNode.connect(this.analyserNode),this.analyserNode.connect(this.out)}playFreq(e=[1e3],t=0,i="sine",s=this.ctx.currentTime){e.forEach(n=>{var h=this.osc.length;this.osc[h]=this.ctx.createOscillator(),this.osc[h].start(),this.osc[h].onended=()=>{this.osc[h].disconnect(),this.osc.splice(h,1)},this.osc[h].type=i,this.osc[h].connect(this.gainNode),this.osc[h].frequency.setValueAtTime(n,s),t!=0&&this.osc[h].stop(s+t)})}stopFreq(e=0,t=1,i=0){for(var s=e;s<t;s++)this.osc[oscIndex]?this.osc[oscIndex].stop(this.ctx.currentTime+i):console.log("No oscillator found.")}addSounds(e=[""],t=(n,h)=>{},i=()=>{},s=!1){typeof e=="string"&&(e=[e]);var n=new I(this,e,this.finishedLoading,t,i);n.load(s)}copySound(e){let t=this.ctx.createBuffer(e.buffers.length,e.duration/e.samplerate,e.samplerate);return e.buffers.forEach((s,n)=>{typeof s=="string"?t.copyToChannel(Float32Array.from(textdecoder.decode(s)),n+1,0):t.copyToChannel(s,n+1,0)}),this.finishedLoading([t])[0]}decodeLocalAudioFile(e=(i,s)=>{},t=()=>{}){var i=document.createElement("input");i.type="file",i.accept="audio/*",i.onchange=s=>{if(s.target.files.length!==0){var n=s.target.files[0],h=new FileReader;h.onload=o=>{var a=o.target.result;this.ctx!==null&&(t(),this.ctx.decodeAudioData(a,r=>{this.finishedLoading([r]),e(this.sourceList.length-1,r)},r=>{console.error(r)}))},h.onerror=function(o){console.error(o)},h.readAsArrayBuffer(n)}},i.click()}playSound(e,t=0,i=!1,s=this.ctx.currentTime){i===!0&&(this.sourceList[e].loop=!0),this.sourceList[e].start(s),t!==0&&this.sourceList[e].stop(s+t)}stopSound(e){this.sourceList[e]&&this.sourceList[e].stop(0)}setPlaybackRate(e,t){this.sourceList[e]&&(this.sourceList[e].playbackRate.value=t)}getAnalyzerData(){var e=new Uint8Array(this.analyserNode.frequencyBinCount);return this.analyserNode.getByteFrequencyData(e)}record(e=new Date().toISOString(),t={audio:!0,video:!1},i=null,s=null,n=!1,h=()=>{}){var o=null,a=null,r=i;r===null&&(t.video!==!1?r=["video/webm","video/webm;codecs=vp8","video/webm;codecs=vp9","video/webm;codecs=vp8.0","video/webm;codecs=vp9.0","video/webm;codecs=h264","video/webm;codecs=H264","video/webm;codecs=avc1","video/webm;codecs=vp8,opus","video/WEBM;codecs=VP8,OPUS","video/webm;codecs=vp9,opus","video/webm;codecs=vp8,vp9,opus","video/webm;codecs=h264,opus","video/webm;codecs=h264,vp9,opus","video/x-matroska;codecs=avc1"]:t.audio===!0&&(r=["audio/wav","audio/mp3","audio/webm","audio/webm;codecs=opus","audio/webm;codecs=pcm","audio/ogg","audio/x-matroska"]));for(var p=0;p<r.length;p++)if(MediaRecorder.isTypeSupported(r[p])===!0){o=r[p],console.log("Supported type: ",o),r[p].indexOf("webm")!==-1&&(a=".webm"),r[p].indexOf("ogg")!==-1&&(a=".ogg"),r[p].indexOf("mp3")!==-1&&(a=".mp3"),r[p].indexOf("wav")!==-1&&(a=".wav"),r[p].indexOf("x-matroska")!==-1&&(a=".mkv");break}if(o!==null){let m=function(d){console.log(d)};return navigator.mediaDevices.getUserMedia(t).then(d=>{if(console.log("Media stream created."),o.indexOf("audio")!==-1){let l=this.ctx.createMediaStreamSource(d),f=this.ctx.createGain();this.sourceList.push(l),this.sourceGains.push(f),l.onended=()=>{l.disconnect(),f.disconnect();let g=0,T=0;this.sourceList.find((w,k)=>{if(JSON.stringify(w)===JSON.stringify(l))return g=k,this.sourceList.splice(g,1),!0}),this.sourceGains.find((w,k)=>{if(JSON.stringify(w)===JSON.stringify(f))return T=k,this.sourceGains.splice(T,1),!0})},l.connect(f),f.connect(this.analyserNode)}h(),s!==null&&(s.src=window.URL.createObjectURL(d)),n===!0&&(this.recorder=new MediaRecorder(d),this.recorder.onstop=l=>{console.log("Media recorded, saving...");var f=new Blob(this.recordedData,{type:o}),g=URL.createObjectURL(f),T=document.createElement("a");document.body.appendChild(T),T.style="display: none",T.href=g,T.download=e+a,T.click(),window.URL.revokeObjectURL(g)},this.recorder.ondataavailable=l=>{this.recordedData.push(l.data)},this.recorder.start())},m),this.sourceList.length}else{alert("Cannot record! Check function call settings, ensure browser is compatible.");return}}replayRecording(e){this.recordedData.length>1&&(this.buffer=new Blob(this.recordedData),e.src=window.URL.createObjectURL(buffer))}},I=class{constructor(e,t,i,s=h=>{},n=()=>{}){u(this,"onReady",e=>{});u(this,"onBeginDecoding",()=>{});this.audio=e,this.ctx=this.audio.ctx,this.urlList=t,this.onload=i,this.bufferList=new Array,this.loadCount=0,this.onBeginDecoding=n,this.onReady=s}loadBuffer(e="",t,i=!1){var s=new XMLHttpRequest;s.responseType="arraybuffer";var n=null;if(e.length>1){s.open("GET",e,!0),s.onreadystatechange=()=>{s.readyState===4&&(s.status===200||s.status===0)&&(n=s.response)};var h=this;s.onload=()=>{this.onBeginDecoding(),h.ctx.decodeAudioData(n,r=>{if(!r){alert("error decoding file data: "+e);return}h.bufferList[t]=r,++h.loadCount===h.urlList.length&&h.onload(h.bufferList),this.onReady(this.audio.sourceList.length-1)},r=>{console.error("decodeAudioData error: "+r+", from url: "+e)})},s.onerror=function(){alert("BufferLoader: XHR error")},s.send()}else if(i){var h=this,o=new FileReader;o.onload=p=>{var m=p.target.result,d=h.ctx;d!==null&&(console.log("Decoding audio..."),this.onBeginDecoding(),d.decodeAudioData(m,l=>{if(l)console.log("File decoded successfully!");else{alert("Error decoding file data: "+e);return}h.bufferList[t]=l,++h.loadCount===h.urlList.length&&h.onload(h.bufferList),this.onReady(this.audio.sourceList.length-1)},l=>{console.error("decodeAudioData error: ",l)}))},o.onerror=p=>{console.log(p)};var a=document.createElement("input");a.type="file",a.multiple=!0,a.onchange=p=>{o.readAsArrayBuffer(p.target.files[0]),a.value=""},a.click()}}load(e=!0){for(var t=0;t<this.urlList.length;++t)this.loadBuffer(this.urlList[t],t,e)}};var E=class{constructor(e=()=>{},t=()=>{}){u(this,"analyze",()=>{this.analyzing===!1&&(this.analyzing=!0,this.loop())});u(this,"resetVars",()=>{this.audsum=0,this.peaksfast=[],this.valsfast=[],this.peaksslow=[],this.valsslow=[],this.peakslong=[],this.valslong=[],this.audSumGraph=new Array(1024).fill(0),this.audSumSmoothedFast=new Array(1024).fill(0),this.audSumSmoothedSlow=new Array(1024).fill(0),this.audSumSmoothedLong=new Array(1024).fill(0),this.audSpect=new Array(1024).fill(new Array(250).fill(0)),this.audTime=new Array(1024).fill(0),this.lastInPeak=0,this.lastOutPeak=0,this.fastPeakTimes=[],this.fastPeakDt=[],this.slowPeakTimes=[],this.longPeakTimes=[],this.peakThreshold=0,this.wasBelowThreshold=!1,this.inPeakVolumes=[],this.outPeakVolumes=[],this.inPeakTimes=[],this.outPeakTimes=[],this.inToOutTimes=[],this.breathingRate=[],this.breathingRateVariability=[],this.resetOutput()});u(this,"resetOutput",()=>{this.output={belowThreshold:!1,isHolding:!1,inVolumes:this.inPeakVolumes,outVolumes:this.outPeakVolumes,inTimes:this.inPeakTimes,outTimes:this.outPeakTimes,inToOutTimes:this.inToOutTimes,fastTimes:this.fastPeakTimes,fastRate:this.fastPeakDt,breathRate:this.breathingRate,brv:this.breathingRateVariability,audioFFT:[],fastSmoothedVolume:this.audSumSmoothedFast,slowSmoothedVolume:this.audSumSmoothedSlow,longSmoothedVolume:this.audSumSmoothedLong}});u(this,"stop",()=>{this.analyzing=!1});u(this,"peakDetect",(e,t="peak",i=49)=>{let s=Math.floor(i*.5),n=[];for(let h=0;h<e.length-i;h++)this.isExtrema(e.slice(h,h+i),t)&&n.push(h+s-1);return n});u(this,"calibrate",()=>{this.slowPeakTimes.length>0&&(this.inPeakTimes=[this.slowPeakTimes[this.slowPeakTimes.length-1]],this.outPeakTimes=[],this.inPeakVolumes=[this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length-1]]],this.outPeakVolumes=[this.audSumSmoothedSlow[this.valsslow[this.valsslow.length-1]]],this.inToOutTimes=[],this.breathingRate=[],this.breathingRateVariability=[],this.resetOutput(),this.output.isHolding=!0)});u(this,"onUpdate",()=>{});u(this,"onBreath",()=>{});u(this,"calcBreathing",()=>{this.output.audioFFT=this.getAudioData().slice(6),this.audsum=this.sumAudioData(),this.audSumGraph.shift(),this.audSumGraph.push(this.audsum),this.audSpect.shift(),this.audSpect.push(this.output.audioFFT),this.audTime.shift(),this.audTime.push(Date.now());let e=this.mean(this.audSumGraph.slice(this.audSumGraph.length-5));this.audSumSmoothedFast.shift(),this.audSumSmoothedFast.push(e);let t=this.mean(this.audSumGraph.slice(this.audSumGraph.length-40));this.audSumSmoothedSlow.shift(),this.audSumSmoothedSlow.push(t);let i=this.mean(this.audSumGraph.slice(this.audSumGraph.length-120));this.audSumSmoothedLong.shift(),this.audSumSmoothedLong.push(i),this.peaksfast=this.peakDetect(this.audSumSmoothedFast,"peak",10),this.valsfast=this.peakDetect(this.audSumSmoothedFast,"valley",10),this.peaksslow=this.peakDetect(this.audSumSmoothedSlow,"peak",25),this.valsslow=this.peakDetect(this.audSumSmoothedSlow,"valley",25),this.peakslong=this.peakDetect(this.audSumSmoothedLong,"peak",80),this.valslong=this.peakDetect(this.audSumSmoothedLong,"valley",80);let s=this.longPeakTimes.length,n=0;if(s>1&&(this.peakThreshold=this.getPeakThreshold(this.audSumSmoothedLong,this.peakslong,this.peakThreshold),n=this.getPeakThreshold(this.audSumSmoothedSlow,this.peaksslow,0),this.audSumSmoothedSlow[this.audSumSmoothedSlow.length-1]<this.peakThreshold&&(this.wasBelowThreshold=!0)),n>this.peakThreshold||s<2||this.inPeakTimes.length>0){if(this.output.belowThreshold===!0&&(this.output.belowThreshold=!1),this.fastPeakTimes[this.fastPeakTimes.length-1]!==this.audTime[this.peaksfast[this.peaksfast.length-1]]&&(this.fastPeakTimes.push(this.audTime[this.peaksfast[this.peaksfast.length-1]]),this.fastPeakTimes.length>1&&this.fastPeakDt.push(this.fastPeakTimes[this.fastPeakTimes.length-1]-this.fastPeakTimes[this.fastPeakTimes.length-2])),this.slowPeakTimes[this.slowPeakTimes.length-1]!==this.audTime[this.peaksslow[this.peaksslow.length-1]]){this.slowPeakTimes.push(this.audTime[this.peaksslow[this.peaksslow.length-1]]);let h=this.longPeakTimes.length,o=this.slowPeakTimes.length,a=this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length-1]],r=this.audSumSmoothedLong[this.peakslong[this.peakslong.length-1]];(h>1&&o>2||this.inPeakTimes.length>0)&&(a>r&&(this.longPeakTimes[h-1]<=this.slowPeakTimes[o-1]||this.longPeakTimes[h-1]-this.slowPeakTimes[o-1]<200)||this.inPeakTimes.length>0&&this.outPeakTimes.length===0)&&((this.inPeakTimes[this.inPeakTimes.length-1]>this.outPeakTimes[this.outPeakTimes.length-1]||this.inPeakTimes.length>0&&this.outPeakTimes.length===0)&&this.wasBelowThreshold===!0?(this.outPeakTimes.push(this.slowPeakTimes[o-1]),this.outPeakVolumes.push(a),this.inPeakTimes.length>0&&this.inToOutTimes.push(this.slowPeakTimes[o-1]-this.inPeakTimes[this.inPeakTimes.length-1]),this.inPeakTimes.length>1&&this.outPeakTimes.length>1&&(this.breathingRate.push(.5*(this.inPeakTimes[this.inPeakTimes.length-1]-this.inPeakTimes[this.inPeakTimes.length-2]+(this.outPeakTimes[this.outPeakTimes.length-1]-this.outPeakTimes[this.outPeakTimes.length-2]))),this.breathingRate.length>1&&this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length-1]-this.breathingRate[this.breathingRate.length-2]))),this.output.isHolding=!1,this.wasBelowThreshold=!1,this.onBreath()):this.inPeakTimes[this.inPeakTimes.length-1]<this.outPeakTimes[this.outPeakTimes.length-1]&&this.inPeakTimes[this.inPeakTimes.length-1]<this.longPeakTimes[h-1]&&this.wasBelowThreshold===!0&&(this.inPeakTimes.push(this.slowPeakTimes[o-1]),this.inPeakVolumes.push(a),this.output.isHolding=!0,this.wasBelowThreshold=!1))}if(this.longPeakTimes[this.longPeakTimes.length-1]!==this.audTime[this.peakslong[this.peakslong.length-1]]){this.longPeakTimes.push(this.audTime[this.peakslong[this.peakslong.length-1]]);let h=this.inPeakTimes[this.inPeakTimes.length-1];h==null&&(h=Date.now());let o=this.longPeakTimes.length,a=this.slowPeakTimes.length,r=this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length-1]],p=this.audSumSmoothedLong[this.peakslong[this.peakslong.length-1]];o>1&&a>2&&r>p&&(this.inPeakTimes.length===0&&this.outPeakTimes.length===0||Date.now()-h>2e4)&&((this.longPeakTimes[o-2]<=this.slowPeakTimes[a-2]||this.longPeakTimes[o-2]-this.slowPeakTimes[a-2]<200||this.longPeakTimes[o-2]-this.slowPeakTimes[a-2]<200)&&(this.longPeakTimes[o-1]>=this.slowPeakTimes[a-1]||this.longPeakTimes[o-1]-this.slowPeakTimes[a-1]<200)?this.longPeakTimes[o-2]<this.slowPeakTimes[a-3]?(this.inPeakTimes.push(this.slowPeakTimes[a-2]),this.outPeakTimes.push(this.slowPeakTimes[a-1]),this.inPeakVolumes.push(this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length-2]]),this.outPeakVolumes.push(r),this.inToOutTimes.push(this.slowPeakTimes[a-1]-this.slowPeakTimes[a-2]),this.inPeakTimes.length>1&&this.outPeakTimes.length>1&&(this.breathingRate.push(.5*(this.inPeakTimes[this.inPeakTimes.length-1]-this.inPeakTimes[this.inPeakTimes.length-2]+(this.outPeakTimes[this.outPeakTimes.length-1]-this.outPeakTimes[this.outPeakTimes.length-2]))),this.breathingRate.length>1&&this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length-1]-this.breathingRate[this.breathingRate.length-2]))),this.onBreath()):(this.inPeakTimes.push(this.slowPeakTimes[a-2]),this.outPeakTimes.push(this.slowPeakTimes[a-1]),this.inPeakVolumes.push(this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length-2]]),this.outPeakVolumes.push(r),this.inToOutTimes.push(this.slowPeakTimes[a-1]-this.slowPeakTimes[a-2]),this.inPeakTimes.length>1&&this.outPeakTimes.length>1&&(this.breathingRate.push(.5*(this.inPeakTimes[this.inPeakTimes.length-1]-this.inPeakTimes[this.inPeakTimes.length-2]+(this.outPeakTimes[this.outPeakTimes.length-1]-this.outPeakTimes[this.outPeakTimes.length-2]))),this.breathingRate.length>1&&this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length-1]-this.breathingRate[this.breathingRate.length-2]))),this.onBreath()):(this.longPeakTimes[o-1]<=this.slowPeakTimes[a-1]||this.longPeakTimes[o-1]-this.slowPeakTimes[a-1]<200)&&(this.inPeakTimes[this.inPeakTimes.length-1]>this.outPeakTimes[this.outPeakTimes.length-1]&&this.wasBelowThreshold===!0?(this.outPeakTimes.push(this.slowPeakTimes[a-1]),this.outPeakVolumes.push(r),this.inPeakTimes.length>0&&this.inToOutTimes.push(this.slowPeakTimes[a-1]-this.inPeakTimes[this.inPeakTimes.length-1]),this.inPeakTimes.length>1&&this.outPeakTimes.length>1&&(this.breathingRate.push(.5*(this.inPeakTimes[this.inPeakTimes.length-1]-this.inPeakTimes[this.inPeakTimes.length-2]+(this.outPeakTimes[this.outPeakTimes.length-1]-this.outPeakTimes[this.outPeakTimes.length-2]))),this.breathingRate.length>1&&this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length-1]-this.breathingRate[this.breathingRate.length-2]))),this.wasBelowThreshold=!1,this.onBreath()):this.inPeakTimes[this.inPeakTimes.length-1]<this.outPeakTimes[this.outPeakTimes.length-1]&&this.inPeakTimes[this.inPeakTimes.length-1]<this.longPeakTimes[o-1]&&this.wasBelowThreshold===!0&&(this.inPeakTimes.push(this.slowPeakTimes[a-1]),this.inPeakVolumes.push(r),this.output.isHolding=!0,this.wasBelowThreshold=!1)))}}else n<this.peakThreshold&&(this.output.belowThreshold||(this.output.belowThreshold=!0))});u(this,"loop",()=>{this.analyzing===!0&&(this.calcBreathing(),this.onUpdate(),setTimeout(()=>{this.loop()},15))});this.effects=[],this.fxStruct={sourceIdx:void 0,source:void 0,playing:!1,id:void 0},this.onUpdate=e,this.onBreath=t,this.audsum=0,this.peaksfast=[],this.valsfast=[],this.peaksslow=[],this.valsslow=[],this.peakslong=[],this.valslong=[],this.audSumGraph=new Array(1024).fill(0),this.audSumSmoothedFast=new Array(1024).fill(0),this.audSumSmoothedSlow=new Array(1024).fill(0),this.audSumSmoothedLong=new Array(1024).fill(0),this.audSpect=new Array(1024).fill(new Array(512).fill(0)),this.audTime=new Array(1024).fill(0),this.lastInPeak=0,this.lastOutPeak=0,this.fastPeakTimes=[],this.fastPeakDt=[],this.slowPeakTimes=[],this.longPeakTimes=[],this.peakThreshold=0,this.wasBelowThreshold=!1,this.inPeakVolumes=[],this.outPeakVolumes=[],this.inPeakTimes=[],this.outPeakTimes=[],this.inToOutTimes=[],this.breathingRate=[],this.breathingRateVariability=[],this.output={belowThreshold:!1,isHolding:!1,inVolumes:this.inPeakVolumes,outVolumes:this.outPeakVolumes,inTimes:this.inPeakTimes,outTimes:this.outPeakTimes,inToOutTimes:this.inToOutTimes,fastTimes:this.fastPeakTimes,fastRate:this.fastPeakDt,breathRate:this.breathingRate,brv:this.breathingRateVariability,audioFFT:[],fastSmoothedVolume:this.audSumSmoothedFast,slowSmoothedVolume:this.audSumSmoothedSlow,longSmoothedVolume:this.audSumSmoothedLong},this.analyzing=!1}connectMic(){if(this.effects.length===0){if(window.audio||(window.audio=new x),window.audio.ctx===null)return;let e=JSON.parse(JSON.stringify(this.fxStruct));e.sourceIdx=window.audio.record(void 0,void 0,null,null,!1,()=>{e.sourceIdx!==void 0&&(e.source=window.audio.sourceList[window.audio.sourceList.length-1],e.playing=!0,e.id="Micin")}),this.effects.push(e);try{window.audio.gainNode.disconnect(window.audio.analyserNode),window.audio.analyserNode.disconnect(window.audio.out),window.audio.gainNode.connect(window.audio.out)}catch{}return e}}stopMic(){if(this.effects.length===1){let e,t=this.effects.find((i,s)=>{if(i.id==="Micin")return e=s,!0});t&&(t.source.mediaStream.getTracks()[0].stop(),this.effects.splice(e,1));try{window.audio.gainNode.disconnect(window.audio.out),window.audio.gainNode.connect(window.audio.analyserNode),window.audio.analyserNode.connect(window.audio.out)}catch{}}}getAudioData(){let e=[];if(window.audio){var t=new Uint8Array(window.audio.analyserNode.frequencyBinCount);window.audio.analyserNode.getByteFrequencyData(t),e=this.reduceArrByFactor(Array.from(t),4)}else e=new Array(512).fill(0);return e}sum(e=[]){if(e.length>0){var t=e.reduce((i,s)=>s+=i);return t}else return 0}mean(e=[]){if(e.length>0){var t=e.reduce((i,s)=>s+=i);return t/e.length}else return 0}reduceArrByFactor(e,t=2){return e.filter((s,n)=>n%t===0)}sma(e,t){for(var i=[],s=0;s<e.length;s++)if(s==0)i.push(e[0]);else if(s<t){var n=e.slice(0,s+1);i.push(n.reduce((h,o)=>o+=h)/(s+1))}else{var n=e.slice(s-t,s);i.push(n.reduce((o,a)=>a+=o)/t)}return i}sumAudioData(){let e=this.getAudioData();return this.sum(e)}makeArr(e,t,i){for(var s=[],n=(t-e)/(i-1),h=0;h<i;h++)s.push(e+n*h);return s}isExtrema(e,t="peak"){let i=[...e];if(i.length%2===0&&i.pop(),e.length>1){let s=!0;for(let n=0;n<i.length;n++){let h=i[n];if(t==="peak"){if(n<Math.floor(i.length*.5)&&h>=i[Math.floor(i.length*.5)]){s=!1;break}else if(n>Math.floor(i.length*.5)&&h>=i[Math.floor(i.length*.5)]){s=!1;break}}else if(t==="valley"){if(n<Math.floor(i.length*.5)&&h<=i[Math.floor(i.length*.5)]){s=!1;break}else if(n>Math.floor(i.length*.5)&&h<=i[Math.floor(i.length*.5)]){s=!1;break}}else if(n<Math.floor(i.length*.5)&&h<=i[Math.floor(i.length*.5)]){s=!1;break}else if(n>Math.floor(i.length*.5)&&h<=i[Math.floor(i.length*.5)]){s=!1;break}}if(t!=="peak"&&t!=="valley"&&s===!1){s=!0;for(let n=0;n<i.length;n++){let h=i[n];if(n<Math.floor(i.length*.5)&&h>=i[Math.floor(i.length*.5)]){s=!1;break}else if(n>Math.floor(i.length*.5)&&h>=i[Math.floor(i.length*.5)]){s=!1;break}}}return s}else return}isCriticalPoint(e,t="peak"){let i=[...e];if(i.length%2===0&&i.pop(),e.length>1){let s=!0;for(let n=0;n<i.length;n++){let h=i[n];if(t==="peak"){if(n<i.length*.5&&h<=0){s=!1;break}else if(n>i.length*.5&&h>0){s=!1;break}}else if(t==="valley"){if(n<i.length*.5&&h>=0){s=!1;break}else if(n>i.length*.5&&h<0){s=!1;break}}else if(n<i.length*.5&&h>=0){s=!1;break}else if(n>i.length*.5&&h<0){s=!1;break}}if(t!=="peak"&&t!=="valley"&&s===!1){s=!0;for(let n=0;n<i.length;n++){let h=i[n];if(n<i.length*.5&&h<=0){s=!1;break}else if(n>i.length*.5&&h>0){s=!1;break}}}return s}else return}interpolateArray(e,t,i=1){var s=i,n=function(l,f,g){return(l+(f-l)*g)*s},h=new Array,o=new Number((e.length-1)/(t-1));h[0]=e[0];for(var a=1;a<t-1;a++){var r=a*o,p=new Number(Math.floor(r)).toFixed(),m=new Number(Math.ceil(r)).toFixed(),d=r-p;h[a]=n(e[p],e[m],d)}return h[t-1]=e[e.length-1],h}getPeakThreshold(e,t,i=0){let s,n=e.filter((h,o)=>{if(t.indexOf(o)>-1)return!0});return i===0?s=this.mean(n):s=(i+this.mean(n))*.5,s}};var F=class{constructor(e=document.body){u(this,"drawAudio",()=>{this.lastFrame=this.currentFrame,this.currentFrame=performance.now(),this.fps=(this.currentFrame-this.lastFrame)*.001;let e=this.canvas.height,t=this.canvas.width,i=this.fps;this.timeScaled+=i+(t/1024-this.fps),this.time+=this.fps;let s=this.currentFrequency,n=this.currentFrequencyMap.map[this.currentMapIndex].amplitude+e/4;this.ctx2.clearRect(0,0,t,e);let h=t-1,o=Math.sin((h+this.timeScaled+t)/(t*s)),a=e*.5+n*o;if(this.amplitudesY.shift(),this.amplitudesY.push(a),this.ctx2.strokeStyle="limegreen",this.ctx2.beginPath(),this.ctx2.moveTo(-10,this.amplitudesY[0]),this.amplitudesY.forEach((l,f)=>{f>0&&this.ctx2.lineTo(this.amplitudesX[f],l+e*.2)}),this.ctx2.stroke(),this.currentFrequency!==this.currentFrequencyMap.map[this.currentMapIndex].frequency&&(this.currentFrequency=this.currentFrequencyMap.map[this.currentMapIndex].frequency),this.currentFrequency===this.currentFrequencyMap.map[this.currentMapIndex].frequency){let l=0,f=this.currentFrequencyMap.duration;for(let g=0;g<this.currentMapIndex+1;g++)l+=this.currentFrequencyMap.map[g].duration;this.time>l+f*this.rounds+this.latentTime&&(this.currentMapIndex===this.currentFrequencyMap.map.length-1?(this.currentMapIndex=0,this.rounds++):this.currentMapIndex++)}let r,p=this.Capture.inPeakTimes.find((l,f)=>{if(l>this.Capture.audTime[0])return r=f,!0});if(r){let l=[],f=this.Capture.audTime.filter((w,k)=>{if(this.Capture.inPeakTimes.slice(this.Capture.inPeakTimes.length-r).indexOf(w)>-1)return l.push(k),!0});this.inpeaks=l;let g,T=this.Capture.outPeakTimes.find((w,k)=>{if(w>this.Capture.audTime[0])return g=k,!0});if(g){let w=[],k=this.Capture.audTime.filter((_,$)=>{if(this.Capture.outPeakTimes.slice(this.Capture.outPeakTimes.length-g).indexOf(_)>-1)return w.push($),!0});this.outpeaks=w}}else{let l=[],f=this.Capture.audTime.filter((w,k)=>{if(this.Capture.inPeakTimes.indexOf(w)>-1)return l.push(k),!0}),g=[],T=this.Capture.audTime.filter((w,k)=>{if(this.Capture.outPeakTimes.indexOf(w)>-1)return g.push(k),!0});this.inpeaks=l,this.outpeaks=g}let m=this.makeArr(0,this.canvas.width,this.Capture.output.audioFFT.length),d=this.makeArr(0,this.canvas.width,this.Capture.audSumGraph.length);this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height),this.ctx.linewidth=2,this.ctx.moveTo(0,this.canvas.height-this.Capture.output.audioFFT[0]),this.ctx.beginPath(),this.ctx.strokeStyle="royalblue",this.Capture.output.audioFFT.forEach((l,f)=>{f>0&&this.ctx.lineTo(m[f],this.canvas.height-l*(this.canvas.height/255))}),this.ctx.stroke(),this.ctx.linewidth=3,this.ctx.moveTo(0,this.canvas.height-this.Capture.audSumGraph[0]),this.ctx.beginPath(),this.ctx.strokeStyle="red",this.Capture.audSumGraph.forEach((l,f)=>{f>0&&this.ctx.lineTo(d[f],this.canvas.height-l*(this.canvas.height/Math.max(...this.Capture.audSumGraph)))}),this.ctx.stroke(),this.ctx.moveTo(0,this.canvas.height-this.Capture.audSumSmoothedFast[0]),this.ctx.beginPath(),this.ctx.strokeStyle="orange",this.Capture.audSumSmoothedFast.forEach((l,f)=>{f>0&&this.ctx.lineTo(d[f],this.canvas.height-l*(this.canvas.height/Math.max(...this.Capture.audSumGraph)))}),this.ctx.stroke(),this.ctx.moveTo(0,this.canvas.height-this.Capture.audSumSmoothedSlow[0]),this.ctx.beginPath(),this.ctx.strokeStyle="gold",this.Capture.audSumSmoothedSlow.forEach((l,f)=>{f>0&&this.ctx.lineTo(d[f],this.canvas.height-l*(this.canvas.height/Math.max(...this.Capture.audSumGraph)))}),this.ctx.stroke(),this.ctx.moveTo(0,this.canvas.height-this.Capture.audSumSmoothedLong[0]),this.ctx.beginPath(),this.ctx.strokeStyle="yellow",this.Capture.audSumSmoothedLong.forEach((l,f)=>{f>0&&this.ctx.lineTo(d[f],this.canvas.height-l*(this.canvas.height/Math.max(...this.Capture.audSumGraph)))}),this.ctx.stroke(),this.ctx.fillStyle="chartreuse",this.inpeaks.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedSlow[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()}),this.ctx.fillStyle="green",this.outpeaks.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedSlow[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()}),this.ctx.fillStyle="pink",this.Capture.peakslong.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedLong[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()}),this.ctx.fillStyle="purple",this.Capture.valslong.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedLong[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()}),this.ctx.fillStyle="red",this.Capture.peaksfast.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedFast[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()}),this.ctx.fillStyle="crimson",this.Capture.valsfast.forEach(l=>{this.ctx.beginPath(),this.ctx.arc(d[l],this.canvas.height-this.Capture.audSumSmoothedFast[l]*(this.canvas.height/Math.max(...this.Capture.audSumGraph)),5,0,Math.PI*2,!0),this.ctx.closePath(),this.ctx.fill()})});u(this,"animate",()=>{this.drawAudio(),this.animating&&setTimeout(()=>{this.animate()},15)});this.parentNode=e,this.AppletHTML=null,this.props={id:String(Math.floor(Math.random()*1e6))},this.canvas,this.ctx,this.canvas2,this.ctx2,this.offscreen=null,this.offscreenctx=null,this.mode="dvb",this.animation="sine",this.fs=10,this.amplitudes=[],this.startTime=void 0,this.rounds=0,this.lastFrame=0,this.latentTime=0,this.currentFrame=0,this.time=0,this.fps=60,this.thisFrame=Date.now(),this.frequencyMaps=[{type:"diaphragmatic",duration:60,map:[{frequency:.1,amplitude:2,duration:60}]},{type:"breathhold",duration:60,map:[{frequency:.1,amplitude:2,duration:5},{frequency:0,amplitude:1,duration:10},{frequency:.1,amplitude:2,duration:5}]},{type:"wimhof",duration:60,map:[{frequency:.01,amplitude:1,duration:30},{frequency:.1,amplitude:2,duration:30}]},{type:"relaxation",duration:60,map:[{frequency:.08,amplitude:2,duration:60}]},{type:"jacobsons",duration:60,map:[{frequency:.08,amplitude:2,duration:60}]}],this.currentFrequencyMap={type:"diaphragmatic",map:[{frequency:.1,amplitude:2,duration:60}]},this.currentFrequency=.1,this.currentMapIndex=0,this.lastAmplitude=0,this.timeScaled=0,this.amplitudesY=new Array(1024).fill(0),this.amplitudesX=new Array(1024).fill(0),this.scaling=10,this.animating=!1,this.step=-4,this.Capture=new E}init(){let e=(i=this.props)=>`
-            <div id='${i.id}' style='height:100vh; width:100vw; background-color:#101010;'>
-                <div id='${i.id}menu'>
-                    <button id='${i.id}startmic'>Start Mic</button>
-                    <button id='${i.id}stopmic'>Stop Mic</button>
-                    <button id='${i.id}calibrate'>Calibrate (Breathe-in then click after ~1 sec)</button>
-                    <select id='${i.id}select'>
+            (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
+  var __publicField = (obj, key, value) => {
+    __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
+    return value;
+  };
+
+  // node_server/server_settings.js
+  var require_server_settings = __commonJS({
+    "node_server/server_settings.js"(exports) {
+      var settings3 = {
+        debug: false,
+        protocol: "http",
+        host: "localhost",
+        port: 8080,
+        socket_protocol: "ws",
+        hotreload: 5e3,
+        python: 7e3,
+        python_node: 7001,
+        startpage: "BreathTrainer.html",
+        errpage: "src/other/404.html",
+        certpath: "node_server/ssl/cert.pem",
+        keypath: "node_server/ssl/key.pem"
+      };
+      exports.settings = settings3;
+    }
+  });
+
+  // src/components/sse.component.html
+  var require_sse_component = __commonJS({
+    "src/components/sse.component.html"(exports, module) {
+      module.exports = '<div style="display:none">SSE Test Component (check console)</div>';
+    }
+  });
+
+  // src/components/socket.component.html
+  var require_socket_component = __commonJS({
+    "src/components/socket.component.html"(exports, module) {
+      module.exports = "<h3>Quart server test page (built from node):</h3>\r\n<br>\r\nWebSocket output:\r\n<ul></ul>";
+    }
+  });
+
+  // src/components/component.html
+  var require_component = __commonJS({
+    "src/components/component.html"(exports, module) {
+      module.exports = "<div>Hello World!</div>";
+    }
+  });
+
+  // node_modules/fragelement/DOMElement.js
+  var DOMElement = class extends HTMLElement {
+    constructor() {
+      super();
+      __publicField(this, "template", (props) => {
+        return `<div> Custom Fragment Props: ${JSON.stringify(props)} </div>`;
+      });
+      __publicField(this, "props", { test: true });
+      __publicField(this, "useShadow", false);
+      __publicField(this, "oncreate");
+      __publicField(this, "onresize");
+      __publicField(this, "ondelete");
+      __publicField(this, "onchanged");
+      __publicField(this, "FRAGMENT");
+      __publicField(this, "attachedShadow", false);
+      __publicField(this, "obsAttributes", ["props", "options", "onchanged", "onresize", "ondelete", "oncreate", "template"]);
+      __publicField(this, "delete", () => {
+        this.remove();
+        if (typeof this.ondelete === "function")
+          this.ondelete(this.props);
+      });
+      __publicField(this, "render", (props = this.props) => {
+        if (typeof this.template === "function")
+          this.templateString = this.template(props);
+        else
+          this.templateString = this.template;
+        const t = document.createElement("template");
+        t.innerHTML = this.templateString;
+        const fragment = t.content;
+        if (this.FRAGMENT) {
+          if (this.useShadow) {
+            this.shadowRoot.removeChild(this.FRAGMENT);
+          } else
+            this.removeChild(this.FRAGMENT);
+        }
+        if (this.useShadow) {
+          if (!this.attachedShadow)
+            this.attachShadow({ mode: "open" });
+          this.shadowRoot.appendChild(fragment);
+          this.FRAGMENT = this.shadowRoot.childNodes[this.shadowRoot.childNodes.length - 1];
+        } else
+          this.appendChild(fragment);
+        this.FRAGMENT = this.childNodes[this.childNodes.length - 1];
+        if (this.oncreate)
+          this.oncreate(props);
+      });
+      __publicField(this, "state", {
+        pushToState: {},
+        data: {},
+        triggers: {},
+        setState(updateObj) {
+          Object.assign(this.pushToState, updateObj);
+          if (Object.keys(this.triggers).length > 0) {
+            for (const prop of Object.getOwnPropertyNames(this.triggers)) {
+              if (this.pushToState[prop]) {
+                this.data[prop] = this.pushToState[prop];
+                delete this.pushToState[prop];
+                this.triggers[prop].forEach((obj) => {
+                  obj.onchanged(this.data[prop]);
+                });
+              }
+            }
+          }
+          return this.pushToState;
+        },
+        subscribeTrigger(key, onchanged = (res) => {
+        }) {
+          if (key) {
+            if (!this.triggers[key]) {
+              this.triggers[key] = [];
+            }
+            let l = this.triggers[key].length;
+            this.triggers[key].push({ idx: l, onchanged });
+            return this.triggers[key].length - 1;
+          } else
+            return void 0;
+        },
+        unsubscribeTrigger(key, sub) {
+          let idx = void 0;
+          let triggers = this.triggers[key];
+          if (triggers) {
+            if (!sub)
+              delete this.triggers[key];
+            else {
+              let obj = triggers.find((o) => {
+                if (o.idx === sub) {
+                  return true;
+                }
+              });
+              if (obj)
+                triggers.splice(idx, 1);
+              return true;
+            }
+          }
+        },
+        subscribeTriggerOnce(key = void 0, onchanged = (value) => {
+        }) {
+          let sub;
+          let changed = (value) => {
+            onchanged(value);
+            this.unsubscribeTrigger(key, sub);
+          };
+          sub = this.subscribeTrigger(key, changed);
+        }
+      });
+    }
+    get observedAttributes() {
+      return this.obsAttributes;
+    }
+    get obsAttributes() {
+      return this.obsAttributes;
+    }
+    set obsAttributes(att) {
+      if (typeof att === "string") {
+        this.obsAttributes.push(att);
+      } else if (Array.isArray(att))
+        this.obsAttributes = att;
+    }
+    static get tag() {
+      return this.name.toLowerCase() + "-";
+    }
+    static addElement(tag = this.tag, cls = this, extend = void 0) {
+      addCustomElement(cls, tag, extend);
+    }
+    attributeChangedCallback(name, old, val) {
+      if (name === "onchanged") {
+        let onchanged = val;
+        if (typeof onchanged === "string")
+          onchanged = parseFunctionFromText(onchanged);
+        if (typeof onchanged === "function") {
+          this.onchanged = onchanged;
+          this.state.data.props = this.props;
+          this.state.unsubscribeTrigger("props");
+          this.state.subscribeTrigger("props", this.onchanged);
+          let changed = new CustomEvent("changed", { detail: { props: this.props } });
+          this.state.subscribeTrigger("props", () => {
+            this.dispatchEvent(changed);
+          });
+        }
+      } else if (name === "onresize") {
+        let onresize = val;
+        if (typeof onresize === "string")
+          onresize = parseFunctionFromText(onresize);
+        if (typeof onresize === "function") {
+          if (this.ONRESIZE) {
+            try {
+              window.removeEventListener("resize", this.ONRESIZE);
+            } catch (err2) {
+            }
+          }
+          this.ONRESIZE = (ev) => {
+            this.onresize(this.props);
+          };
+          this.onresize = onresize;
+          window.addEventListener("resize", this.ONRESIZE);
+        }
+      } else if (name === "ondelete") {
+        let ondelete = val;
+        if (typeof ondelete === "string")
+          ondelete = parseFunctionFromText(ondelete);
+        if (typeof ondelete === "function") {
+          this.ondelete = () => {
+            if (this.ONRESIZE)
+              window.removeEventListener("resize", this.ONRESIZE);
+            this.state.unsubscribeTrigger("props");
+            if (ondelete)
+              ondelete(this.props);
+          };
+        }
+      } else if (name === "oncreate") {
+        let oncreate = val;
+        if (typeof oncreate === "string")
+          oncreate = parseFunctionFromText(oncreate);
+        if (typeof oncreate === "function") {
+          this.oncreate = oncreate;
+        }
+      } else if (name === "props") {
+        let newProps = val;
+        if (typeof newProps === "string")
+          newProps = JSON.parse(newProps);
+        Object.assign(this.props, newProps);
+        this.state.setState({ props: this.props });
+      } else if (name === "template") {
+        let template = val;
+        this.template = options.template;
+        if (typeof template === "function")
+          this.templateString = this.template(this.props);
+        else
+          this.templateString = template;
+        this.render(this.props);
+        let created = new CustomEvent("created", { detail: { props: this.props } });
+        this.dispatchEvent(created);
+      } else {
+        let parsed = val;
+        if (name.includes("eval_")) {
+          name = name.split("_");
+          name.shift();
+          name = name.join();
+          parsed = parseFunctionFromText(val);
+        } else if (typeof val === "string") {
+          try {
+            parsed = JSON.parse(val);
+          } catch (err2) {
+            parsed = val;
+          }
+        }
+        this[name] = parsed;
+        this.props[name] = parsed;
+      }
+    }
+    connectedCallback() {
+      let newProps = this.getAttribute("props");
+      if (typeof newProps === "string")
+        newProps = JSON.parse(newProps);
+      Object.assign(this.props, newProps);
+      this.state.setState({ props: this.props });
+      Array.from(this.attributes).forEach((att) => {
+        let name = att.name;
+        let parsed = att.value;
+        if (name.includes("eval_")) {
+          name = name.split("_");
+          name.shift();
+          name = name.join();
+          parsed = parseFunctionFromText(att.value);
+        } else if (typeof att.value === "string") {
+          try {
+            parsed = JSON.parse(att.value);
+          } catch (err2) {
+            parsed = att.value;
+          }
+        }
+        if (!this[name]) {
+          Object.defineProperties(this, att, {
+            value: parsed,
+            writable: true,
+            get() {
+              return this[name];
+            },
+            set(val) {
+              this.setAttribute(name, val);
+            }
+          });
+        }
+        this[name] = parsed;
+        this.props[name] = parsed;
+        this.obsAttributes.push(name);
+      });
+      let resizeevent = new CustomEvent("resized", { detail: { props: this.props } });
+      let changed = new CustomEvent("changed", { detail: { props: this.props } });
+      let deleted = new CustomEvent("deleted", { detail: { props: this.props } });
+      let created = new CustomEvent("created", { detail: { props: this.props } });
+      this.render(this.props);
+      this.dispatchEvent(created);
+      this.state.subscribeTrigger("props", () => {
+        this.dispatchEvent(changed);
+      });
+      if (typeof this.onresize === "function") {
+        if (this.ONRESIZE) {
+          try {
+            window.removeEventListener("resize", this.ONRESIZE);
+          } catch (err2) {
+          }
+        }
+        this.ONRESIZE = (ev) => {
+          this.onresize(this.props);
+        };
+        window.addEventListener("resize", this.ONRESIZE);
+      }
+      if (typeof this.ondelete === "function") {
+        let ondelete = this.ondelete;
+        this.ondelete = (props = this.props) => {
+          if (this.ONRESIZE)
+            window.removeEventListener("resize", this.ONRESIZE);
+          this.state.unsubscribeTrigger("props");
+          ondelete(props);
+        };
+      }
+      if (typeof this.onchanged === "function") {
+        this.state.data.props = this.props;
+        this.state.subscribeTrigger("props", this.onchanged);
+      }
+    }
+    get props() {
+      return this.props;
+    }
+    set props(newProps = {}) {
+      this.setAttribute("props", newProps);
+    }
+    get template() {
+      return this.template;
+    }
+    set template(template) {
+      this.setAttribute("template", template);
+    }
+    get render() {
+      return this.render;
+    }
+    get delete() {
+      return this.delete;
+    }
+    get state() {
+      return this.state;
+    }
+    get onchanged() {
+      return this.onchanged;
+    }
+    set onchanged(onchanged) {
+      this.setAttribute("onchanged", onchanged);
+    }
+    get onresize() {
+      return this.props;
+    }
+    set onresize(onresize) {
+      this.setAttribute("onresize", onresize);
+    }
+    get ondelete() {
+      return this.props;
+    }
+    set ondelete(ondelete) {
+      this.setAttribute("ondelete", ondelete);
+    }
+    get oncreate() {
+      return this.oncreate;
+    }
+    set oncreate(oncreate) {
+      this.setAttribute("oncreated", oncreate);
+    }
+  };
+  function addCustomElement(cls, tag, extend = null) {
+    try {
+      if (extend) {
+        if (tag)
+          window.customElements.define(tag, cls, { extends: extend });
+        else
+          window.customElements.define(cls.name.toLowerCase() + "-", cls, { extends: extend });
+      } else {
+        if (tag)
+          window.customElements.define(tag, cls);
+        else
+          window.customElements.define(cls.name.toLowerCase() + "-", cls);
+      }
+    } catch (err2) {
+    }
+  }
+  function randomId(tag = "") {
+    return tag + Math.floor(Math.random() * 1e15);
+  }
+  function parseFunctionFromText(method) {
+    let getFunctionBody = (methodString) => {
+      return methodString.replace(/^\W*(function[^{]+\{([\s\S]*)\}|[^=]+=>[^{]*\{([\s\S]*)\}|[^=]+=>(.+))/i, "$2$3$4");
+    };
+    let getFunctionHead = (methodString) => {
+      let startindex = methodString.indexOf(")");
+      return methodString.slice(0, methodString.indexOf("{", startindex) + 1);
+    };
+    let newFuncHead = getFunctionHead(method);
+    let newFuncBody = getFunctionBody(method);
+    let newFunc;
+    try {
+      if (newFuncHead.includes("function ")) {
+        let varName = newFuncHead.split("(")[1].split(")")[0];
+        newFunc = new Function(varName, newFuncBody);
+      } else {
+        if (newFuncHead.substring(0, 6) === newFuncBody.substring(0, 6)) {
+          let varName = newFuncHead.split("(")[1].split(")")[0];
+          newFunc = new Function(varName, newFuncBody.substring(newFuncBody.indexOf("{") + 1, newFuncBody.length - 1));
+        } else {
+          try {
+            newFunc = eval(newFuncHead + newFuncBody + "}");
+          } catch (err) {
+            newFunc = eval(method);
+          }
+        }
+      }
+    } catch (err2) {
+    }
+    return newFunc;
+  }
+
+  // src/components/sse.component.js
+  var import_server_settings = __toESM(require_server_settings());
+  var component = require_sse_component();
+  var SSE = class extends DOMElement {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "props", { host: import_server_settings.settings.host, port: import_server_settings.settings.python, es: void 0 });
+      __publicField(this, "template", component);
+      __publicField(this, "oncreate", (props) => {
+        props.es = new EventSource(`http://${props.host}:${props.port}/sse`);
+        props.es.onmessage = function(event) {
+          console.log("Event Source:", event.data);
+        };
+      });
+      __publicField(this, "ondelete", (props) => {
+        props.es.close();
+      });
+    }
+  };
+  addCustomElement(SSE, "sse-test");
+
+  // src/components/socket.component.js
+  var import_server_settings2 = __toESM(require_server_settings());
+  var component2 = require_socket_component();
+  var Socket = class extends DOMElement {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "props", { host: import_server_settings2.settings.host, port: import_server_settings2.settings.python, ws: void 0 });
+      __publicField(this, "template", component2);
+      __publicField(this, "oncreate", (props) => {
+        props.ws = new WebSocket(`ws://${props.host}:${props.port}/`);
+        props.ws.onmessage = (event) => {
+          const messagesDOM = this.getElementsByTagName("ul")[0];
+          const messageDOM = document.createElement("li");
+          const message = event.data;
+          const contentDOM = document.createTextNode(message);
+          messageDOM.appendChild(contentDOM);
+          messagesDOM.appendChild(messageDOM);
+        };
+      });
+      __publicField(this, "ondelete", (props) => {
+        props.ws.close();
+      });
+    }
+  };
+  addCustomElement(Socket, "socket-test");
+
+  // src/components/component.js
+  var component3 = require_component();
+  var Custom = class extends DOMElement {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "props", {});
+      __publicField(this, "template", component3);
+      __publicField(this, "oncreate", (props) => {
+        console.log("Custom html component created!");
+      });
+      __publicField(this, "ondelete", (props) => {
+        console.log("Custom html component deleted!");
+      });
+    }
+  };
+  Custom.addElement("custom-");
+
+  // node_modules/objectlisteners/ObjectListener.js
+  var ObjectListener = class {
+    constructor(debug = false, synchronous = false) {
+      __publicField(this, "addFunc", (key = null, newCallback = null, start = true) => {
+        var callbackIdx = null;
+        if (newCallback !== null) {
+          if (key == null) {
+            this.listeners.forEach((obj, i) => {
+              callbackIdx = obj.listener.addFunc(newCallback);
+              if (obj.listener.running == false && start == true)
+                obj.listener.start();
+            });
+          } else {
+            var found = this.listeners.find((obj, i) => {
+              if (obj.key === key) {
+                callbackIdx = obj.listener.addFunc(newCallback);
+                if (obj.listener.running == false && start == true)
+                  obj.listener.start();
+              }
+            });
+          }
+        }
+        return callbackIdx;
+      });
+      __publicField(this, "getFuncs", (key = void 0) => {
+        if (key) {
+          var found = this.listeners.find((o, i) => {
+            if (o.key === key) {
+              return true;
+            }
+          });
+          return found.onchangeFuncs;
+        } else
+          return void 0;
+      });
+      __publicField(this, "removeFuncs", (key = null, idx = null, stop = false) => {
+        if (key == null) {
+          this.listeners.forEach((obj, i) => {
+            obj.listener.removeFuncs(idx);
+          });
+        } else {
+          var found = this.listeners.find((o, i) => {
+            if (o.key === key) {
+              o.listener.removeFuncs(idx);
+              if (o.listener.onchangeFuncs.length === 0 || stop === true) {
+                o.listener.stop();
+              }
+            }
+          });
+        }
+      });
+      this.debug = debug;
+      this.listeners = [];
+      this.synchronous = synchronous;
+      this.syncInterval = "FRAMERATE";
+      this.syncAnim = void 0;
+      if (synchronous === true)
+        this.startSync();
+    }
+    addListener(listenerKey = null, objectToListenTo, propToListenTo = void 0, onchange = void 0, interval = void 0, debug = this.debug, startRunning = true) {
+      if (objectToListenTo === void 0) {
+        console.error("You must assign an object");
+        return;
+      }
+      var key = listenerKey;
+      if (key == null) {
+        key = Math.floor(Math.random() * 1e5);
+      }
+      if (this.synchronous === true)
+        startRunning = false;
+      var listener = { key, listener: new ObjectListenerInstance(objectToListenTo, propToListenTo, onchange, interval, debug, startRunning) };
+      this.listeners.push(listener);
+    }
+    getListener(key) {
+      let found = this.listeners.find((item, i) => {
+        if (item.key === key)
+          return true;
+      });
+      return found;
+    }
+    hasKey(key) {
+      var found = false;
+      this.listeners.forEach((item, i) => {
+        if (item.key === key) {
+          found = true;
+          return true;
+        }
+      });
+      return found;
+    }
+    getKeyIndices(key) {
+      var indices = [];
+      this.listeners.find((o, i) => {
+        if (o.key === key) {
+          indices.push(i);
+        }
+      });
+      return indices;
+    }
+    onchange(key = null, newCallback = null) {
+      if (key == null) {
+        this.listeners.forEach((obj, i) => {
+          obj.listener.onchange = newCallback;
+        });
+      } else {
+        var found = this.listeners.find((o, i) => {
+          if (o.name === key) {
+            o.listener.onchange = newCallback;
+          }
+        });
+      }
+    }
+    stop(key = null) {
+      if (this.synchronous)
+        this.stopSync();
+      if (key == null) {
+        this.listeners.forEach((obj, i) => {
+          obj.listener.stop();
+        });
+      } else {
+        var found = this.listeners.find((o, i) => {
+          if (o.name === key) {
+            o.listener.stop();
+          }
+        });
+      }
+    }
+    start(key = null) {
+      if (this.synchronous)
+        this.stopSync();
+      if (key == null) {
+        this.listeners.forEach((obj, i) => {
+          obj.listener.start();
+        });
+      } else {
+        var found = this.listeners.find((o, i) => {
+          if (o.name === key) {
+            o.listener.start();
+          }
+        });
+      }
+    }
+    startSync() {
+      if (this.synchronous === false) {
+        this.synchronous = true;
+        this.stop();
+        let runChecks = () => {
+          if (this.synchronous === true) {
+            this.listeners.forEach((l) => {
+              l.listener.check();
+            });
+            if (this.syncInterval === "FRAMERATE") {
+              this.syncAnim = requestAnimationFrame(runChecks);
+            } else if (typeof this.syncInterval === "number") {
+              setTimeout(runChecks, this.syncInterval);
+            }
+          }
+        };
+        runChecks();
+      }
+    }
+    stopSync() {
+      this.synchronous = false;
+      if (this.syncAnim)
+        cancelAnimationFrame(this.syncAnim);
+    }
+    remove(key = null) {
+      if (key == null) {
+        this.listeners.forEach((o) => {
+          o.listener.stop();
+        });
+        this.listeners.splice(0, this.listeners.length);
+      } else {
+        var indices = [];
+        var found = this.listeners.forEach((o, i) => {
+          if (o.key === key) {
+            indices.push(i);
+          }
+        });
+        indices.reverse().forEach((idx) => {
+          this.listeners[idx].listener.stop();
+          this.listeners.splice(idx, 1);
+        });
+      }
+    }
+  };
+  var ObjectListenerInstance = class {
+    constructor(object, propName = "__ANY__", onchange = this.onchange, interval = "FRAMERATE", debug = false, startRunning = true) {
+      __publicField(this, "onchange", (newData) => {
+        console.log(this.propName, " changed from: ", this.propOld, " to: ", this.object[this.propName]);
+      });
+      __publicField(this, "addFunc", (onchange = null) => {
+        let sub = 0;
+        if (onchange !== null) {
+          this.onchangeFuncs.push({ idx: this.funcs, onchange });
+          sub = this.funcs;
+          this.funcs++;
+        }
+        return sub;
+      });
+      __publicField(this, "onchangeMulti", (newData) => {
+        let onChangeCache = [...this.onchangeFuncs];
+        onChangeCache.forEach((func, i) => {
+          if (this.debug === true) {
+            console.log(func.onchange);
+          }
+          func.onchange(newData);
+        });
+      });
+      __publicField(this, "setListenerRef", (propName) => {
+        if (propName === "__ANY__" || propName === null || propName === void 0) {
+          this.propOld = JSON.stringifyFast(this.object);
+        } else if (Array.isArray(this.object[propName])) {
+          this.propOld = JSON.stringifyFast(this.object[propName].slice(this.object[propName].length - 20));
+        } else if (typeof this.object[propName] === "object") {
+          this.propOld = JSON.stringifyFast(this.object[propName]);
+        } else if (typeof this.object[propName] === "function") {
+          this.propOld = this.object[propName].toString();
+        } else {
+          this.propOld = this.object[propName];
+        }
+        if (this.debug === true) {
+          console.log("propname", propName, ", new assignment: ", this.propOld);
+        }
+      });
+      __publicField(this, "check", () => {
+        let changed = false;
+        if (this.propName === "__ANY__" || this.propName === null || this.propName === void 0) {
+          if (this.propOld !== JSON.stringifyFast(this.object)) {
+            if (this.debug === true) {
+              console.log("onchange: ", this.onchange);
+            }
+            this.onchange(this.object);
+            if (this.onchangeFuncs.length > 0) {
+              this.onchangeMulti(this.object);
+            }
+            this.setListenerRef(this.propName);
+            changed = true;
+          }
+        } else if (Array.isArray(this.object[this.propName])) {
+          if (this.propOld !== JSON.stringifyFast(this.object[this.propName].slice(this.object[this.propName].length - 20))) {
+            if (this.debug === true) {
+              console.log("onchange: ", this.onchange);
+            }
+            this.onchange(this.object[this.propName]);
+            if (this.onchangeFuncs.length > 0) {
+              this.onchangeMulti(this.object[this.propName]);
+            }
+            this.setListenerRef(this.propName);
+            changed = true;
+          }
+        } else if (typeof this.object[this.propName] === "object") {
+          let string = JSON.stringifyFast(this.object[this.propName]);
+          if (this.propOld !== string) {
+            if (this.debug === true) {
+              console.log("onchange: ", this.onchange);
+            }
+            this.onchange(this.object[this.propName]);
+            if (this.onchangeFuncs.length > 0) {
+              this.onchangeMulti(this.object[this.propName]);
+            }
+            this.setListenerRef(this.propName);
+            changed = true;
+          }
+        } else if (typeof this.object[this.propName] === "function") {
+          if (this.propOld !== this.object[this.propName].toString()) {
+            if (this.debug === true) {
+              console.log("onchange: ", this.onchange);
+            }
+            this.onchange(this.object[this.propName].toString());
+            if (this.onchangeFuncs.length > 0) {
+              this.onchangeMulti(this.object[this.propName].toString());
+            }
+            this.setListenerRef(this.propName);
+            changed = true;
+          }
+        } else if (this.object[this.propName] !== this.propOld) {
+          if (this.debug === true) {
+            console.log("onchange: ", this.onchange);
+          }
+          this.onchange(this.object[this.propName]);
+          if (this.onchangeFuncs.length > 0) {
+            this.onchangeMulti(this.object[this.propName]);
+          }
+          this.setListenerRef(this.propName);
+          changed = true;
+        }
+        if (this.running === true) {
+          if (this.debug === true) {
+            console.log("checking", this.object, this.propName);
+          }
+          if (this.interval === "FRAMERATE") {
+            if (typeof window === "undefined") {
+              setTimeout(() => {
+                this.check();
+              }, 16);
+            } else {
+              this.checker = requestAnimationFrame(this.check);
+            }
+          } else {
+            setTimeout(() => {
+              this.check();
+            }, this.interval);
+          }
+        }
+        ;
+        return changed;
+      });
+      this.debug = debug;
+      this.onchange = onchange;
+      this.onchangeFuncs = [];
+      this.object = object;
+      this.propName = propName;
+      this.propOld = void 0;
+      this.setListenerRef(propName);
+      this.running = startRunning;
+      this.funcs = 0;
+      this.interval;
+      if (interval < 10) {
+        this.interval = 10;
+        console.log("Min recommended interval set: 10ms");
+      } else {
+        this.interval = interval;
+      }
+      if (startRunning === true) {
+        if (typeof window === "undefined") {
+          setTimeout(() => {
+            this.check();
+          }, 60);
+        } else {
+          this.checker = requestAnimationFrame(this.check);
+        }
+      }
+    }
+    removeFuncs(idx = null) {
+      let i = 0;
+      if (idx === null) {
+        this.onchangeFuncs = [];
+      } else if (this.onchangeFuncs.find((o, j) => {
+        if (o.idx === idx) {
+          i = j;
+          return true;
+        }
+      }) !== void 0) {
+        this.onchangeFuncs.splice(i, 1);
+      }
+    }
+    start() {
+      this.running = true;
+      if (typeof window === "undefined") {
+        setTimeout(() => {
+          this.check();
+        }, 16);
+      } else {
+        this.checker = requestAnimationFrame(this.check);
+      }
+    }
+    stop() {
+      this.running = false;
+      cancelAnimationFrame(this.checker);
+    }
+  };
+  if (JSON.stringifyFast === void 0) {
+    JSON.stringifyFast = function() {
+      const refs = /* @__PURE__ */ new Map();
+      const parents = [];
+      const path = ["this"];
+      function clear() {
+        refs.clear();
+        parents.length = 0;
+        path.length = 1;
+      }
+      function updateParents(key, value) {
+        var idx = parents.length - 1;
+        if (parents[idx]) {
+          var prev = parents[idx];
+          if (typeof prev === "object") {
+            if (prev[key] === value || idx === 0) {
+              path.push(key);
+              parents.push(value.pushed);
+            } else {
+              while (idx-- >= 0) {
+                prev = parents[idx];
+                if (typeof prev === "object") {
+                  if (prev[key] === value) {
+                    idx += 2;
+                    parents.length = idx;
+                    path.length = idx;
+                    --idx;
+                    parents[idx] = value;
+                    path[idx] = key;
+                    break;
+                  }
+                }
+                idx--;
+              }
+            }
+          }
+        }
+      }
+      function checkValues(key, value) {
+        let val;
+        if (value != null) {
+          if (typeof value === "object") {
+            let c = value.constructor.name;
+            if (key && c === "Object") {
+              updateParents(key, value);
+            }
+            let other = refs.get(value);
+            if (other) {
+              return "[Circular Reference]" + other;
+            } else {
+              refs.set(value, path.join("."));
+            }
+            if (c === "Array") {
+              if (value.length > 20) {
+                val = value.slice(value.length - 20);
+              } else
+                val = value;
+            } else if (c.includes("Set")) {
+              val = Array.from(value);
+            } else if (c !== "Object" && c !== "Number" && c !== "String" && c !== "Boolean") {
+              val = "instanceof_" + c;
+            } else if (c === "Object") {
+              let obj = {};
+              for (const prop in value) {
+                if (value[prop] == null) {
+                  obj[prop] = value[prop];
+                } else if (Array.isArray(value[prop])) {
+                  if (value[prop].length > 20)
+                    obj[prop] = value[prop].slice(value[prop].length - 20);
+                  else
+                    obj[prop] = value[prop];
+                } else if (value[prop].constructor.name === "Object") {
+                  obj[prop] = {};
+                  for (const p in value[prop]) {
+                    if (Array.isArray(value[prop][p])) {
+                      if (value[prop][p].length > 20)
+                        obj[prop][p] = value[prop][p].slice(value[prop][p].length - 20);
+                      else
+                        obj[prop][p] = value[prop][p];
+                    } else {
+                      if (value[prop][p] != null) {
+                        let con = value[prop][p].constructor.name;
+                        if (con.includes("Set")) {
+                          obj[prop][p] = Array.from(value[prop][p]);
+                        } else if (con !== "Number" && con !== "String" && con !== "Boolean") {
+                          obj[prop][p] = "instanceof_" + con;
+                        } else {
+                          obj[prop][p] = value[prop][p];
+                        }
+                      } else {
+                        obj[prop][p] = value[prop][p];
+                      }
+                    }
+                  }
+                } else {
+                  let con = value[prop].constructor.name;
+                  if (con.includes("Set")) {
+                    obj[prop] = Array.from(value[prop]);
+                  } else if (con !== "Number" && con !== "String" && con !== "Boolean") {
+                    obj[prop] = "instanceof_" + con;
+                  } else {
+                    obj[prop] = value[prop];
+                  }
+                }
+              }
+              val = obj;
+            } else {
+              val = value;
+            }
+          } else {
+            val = value;
+          }
+        }
+        return val;
+      }
+      return function stringifyFast(obj, space) {
+        parents.push(obj);
+        let res = JSON.stringify(obj, checkValues, space);
+        clear();
+        return res;
+      };
+    }();
+  }
+  if (JSON.stringifyWithCircularRefs === void 0) {
+    JSON.stringifyWithCircularRefs = function() {
+      const refs = /* @__PURE__ */ new Map();
+      const parents = [];
+      const path = ["this"];
+      function clear() {
+        refs.clear();
+        parents.length = 0;
+        path.length = 1;
+      }
+      function updateParents(key, value) {
+        var idx = parents.length - 1;
+        var prev = parents[idx];
+        if (prev[key] === value || idx === 0) {
+          path.push(key);
+          parents.push(value);
+        } else {
+          while (idx-- >= 0) {
+            prev = parents[idx];
+            if (prev[key] === value) {
+              idx += 2;
+              parents.length = idx;
+              path.length = idx;
+              --idx;
+              parents[idx] = value;
+              path[idx] = key;
+              break;
+            }
+          }
+        }
+      }
+      function checkCircular(key, value) {
+        if (value != null) {
+          if (typeof value === "object") {
+            if (key) {
+              updateParents(key, value);
+            }
+            let other = refs.get(value);
+            if (other) {
+              return "[Circular Reference]" + other;
+            } else {
+              refs.set(value, path.join("."));
+            }
+          }
+        }
+        return value;
+      }
+      return function stringifyWithCircularRefs(obj, space) {
+        try {
+          parents.push(obj);
+          return JSON.stringify(obj, checkCircular, space);
+        } finally {
+          clear();
+        }
+      };
+    }();
+  }
+  var ObjectListener_default = ObjectListener;
+
+  // src/DOMFragment.js
+  var DOMFragment = class {
+    constructor(templateStringGen = this.templateStringGen, parentNode = document.body, props = {}, onRender = (props2) => {
+    }, onchange = (props2) => {
+    }, propUpdateInterval = "NEVER", ondelete = (props2) => {
+    }, onresize = void 0) {
+      __publicField(this, "onchange", (props = this.renderSettings.props) => {
+      });
+      __publicField(this, "onRender", (props = this.renderSettings.props) => {
+      });
+      __publicField(this, "ondelete", (props = this.renderSettings.props) => {
+      });
+      __publicField(this, "onresize");
+      __publicField(this, "isElement", (element) => {
+        return element instanceof Element || element instanceof HTMLDocument;
+      });
+      this.onRender = onRender;
+      this.onchange = onchange;
+      this.ondelete = ondelete;
+      this.onresize = onresize;
+      this.parentNode = parentNode;
+      if (typeof parentNode === "string") {
+        this.parentNode = document.getElementById(parentNode);
+      }
+      this.renderSettings = {
+        templateStringGen,
+        props
+      };
+      this.props = this.renderSettings.props;
+      this.templateString = ``;
+      if (typeof templateStringGen === "function") {
+        this.templateString = templateStringGen(props);
+      } else {
+        this.templateString = templateStringGen;
+      }
+      var interval = propUpdateInterval;
+      if (Object.keys(this.renderSettings.props).length === 0) {
+        interval = "NEVER";
+      }
+      this.node = null;
+      this.listener = void 0;
+      if (Object.keys(this.renderSettings.props).length > 0 && !(interval === null || interval === void 0 || interval === "NEVER")) {
+        console.log("making listeners for ", templateStringGen);
+        this.listener = new ObjectListener_default();
+        const templateChange = () => {
+          this.updateNode();
+        };
+        this.listener.addListener("templateChange", this.renderSettings, "templateStringGen", templateChange, interval);
+        const propsChange = () => {
+          this.updateNode();
+          this.onchange();
+        };
+        this.listener.addListener("props", this.renderSettings, "props", propsChange, interval);
+      }
+      this.renderNode();
+    }
+    appendFragment(toAppend, parentNode) {
+      if (this.isElement(toAppend))
+        parentNode.appendChild(toAppend);
+      else {
+        var template = document.createElement("template");
+        template.innerHTML = toAppend;
+        var fragment = template.content;
+        parentNode.appendChild(fragment);
+      }
+      return parentNode.children[parentNode.children.length - 1];
+    }
+    deleteFragment(parentNode, nodeId) {
+      this.ondelete(this.renderSettings.props);
+      var node = document.getElementById(nodeId);
+      parentNode.removeChild(node);
+    }
+    removeParent(elementId) {
+      if (typeof this.onresize === "function") {
+        this.removeNodeResizing();
+      }
+      this.ondelete(this.renderSettings.props);
+      var element = document.getElementById(elementId);
+      element.parentNode.parentNode.removeChild(element.parentNode);
+    }
+    renderNode(parentNode = this.parentNode) {
+      this.node = this.appendFragment(this.templateString, parentNode);
+      this.onRender(this.renderSettings.props);
+      if (typeof this.onresize === "function") {
+        this.setNodeResizing();
+      }
+    }
+    setNodeResizing() {
+      if (typeof this.onresize === "function") {
+        if (window.attachEvent) {
+          window.attachEvent("onresize", this.onresize);
+        } else if (window.addEventListener) {
+          window.addEventListener("resize", this.onresize, true);
+        }
+      }
+    }
+    removeNodeResizing() {
+      if (typeof this.onresize === "function") {
+        if (window.detachEvent) {
+          window.detachEvent("onresize", this.onresize);
+        } else if (window.removeEventListener) {
+          window.removeEventListener("resize", this.onresize, true);
+        }
+      }
+    }
+    updateNode(parentNode = this.parentNode, node = this.node, props = this.props) {
+      parentNode.removeChild(node);
+      if (typeof this.renderSettings.templateStringGen === "function") {
+        this.templateString = this.renderSettings.templateStringGen(this.props);
+      } else {
+        this.templateString = this.renderSettings.templateStringGen;
+      }
+      this.renderNode(parentNode, props);
+    }
+    deleteNode(node = this.node) {
+      if (typeof this.onresize === "function") {
+        this.removeNodeResizing();
+      }
+      if (typeof node === "string") {
+        this.ondelete(this.renderSettings.props);
+        thisNode = document.getElementById(node);
+        thisNode.parentNode.removeChild(thisNode);
+        this.node = null;
+      } else if (typeof node === "object") {
+        this.ondelete(this.renderSettings.props);
+        if (node)
+          node.parentNode.removeChild(node);
+        this.node = null;
+      }
+    }
+    appendStylesheet(styles = "", node = this.node) {
+      if (typeof styles === "string") {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = styles;
+        node.insertAdjacentElement("afterbegin", link);
+      } else if (Array.isArray(styles)) {
+        styles.forEach((style) => {
+          var link2 = document.createElement("link");
+          link2.rel = "stylesheet";
+          link2.type = "text/css";
+          link2.href = style;
+          node.insertAdjacentElement("afterbegin", link2);
+        });
+      } else if (typeof styles === "function") {
+        let styleResult = styles();
+        if (node) {
+          if (typeof styleResult === "string")
+            node.insertAdjacentHTML("afterbegin", styleResult);
+          else
+            node.insertAdjacentElement("afterbegin", styleResult);
+        }
+      }
+    }
+  };
+
+  // src/Sound.js
+  var SoundJS = class {
+    constructor() {
+      __publicField(this, "finishedLoading", (bufferList) => {
+        let newBufferSourceIndices = [];
+        bufferList.forEach((element) => {
+          this.sourceList.push(this.ctx.createBufferSource());
+          var idx = this.sourceList.length - 1;
+          newBufferSourceIndices.push(idx);
+          let sauce = this.sourceList[idx];
+          this.sourceGains.push(this.ctx.createGain());
+          let gainz = this.sourceGains[idx];
+          sauce.buffer = element;
+          sauce.onended = () => {
+            sauce.disconnect();
+            gainz.disconnect();
+            let l = 0, k = 0;
+            this.sourceList.find((o, j) => {
+              if (JSON.stringify(o) === JSON.stringify(sauce)) {
+                l = j;
+                this.sourceList.splice(l, 1);
+                return true;
+              }
+            });
+            this.sourceGains.find((o, j) => {
+              if (JSON.stringify(o) === JSON.stringify(gainz)) {
+                k = j;
+                this.sourceGains.splice(k, 1);
+                return true;
+              }
+            });
+          };
+          sauce.connect(gainz);
+          gainz.connect(this.gainNode);
+        });
+        return newBufferSourceIndices;
+      });
+      window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext || window.msAudioContext;
+      this.ctx = null;
+      try {
+        this.ctx = new AudioContext();
+      } catch (e) {
+        alert("Your browser does not support AudioContext!");
+        console.log(e);
+      }
+      this.sourceList = [];
+      this.sourceGains = [];
+      this.recordedData = [];
+      this.recorder = null;
+      this.buffer = [];
+      this.osc = [];
+      this.gainNode = this.ctx.createGain();
+      this.analyserNode = this.ctx.createAnalyser();
+      this.out = this.ctx.destination;
+      this.gainNode.connect(this.analyserNode);
+      this.analyserNode.connect(this.out);
+    }
+    playFreq(freq = [1e3], seconds = 0, type = "sine", startTime = this.ctx.currentTime) {
+      freq.forEach((element) => {
+        var len = this.osc.length;
+        this.osc[len] = this.ctx.createOscillator();
+        this.osc[len].start();
+        this.osc[len].onended = () => {
+          this.osc[len].disconnect();
+          this.osc.splice(len, 1);
+        };
+        this.osc[len].type = type;
+        this.osc[len].connect(this.gainNode);
+        this.osc[len].frequency.setValueAtTime(element, startTime);
+        if (seconds != 0) {
+          this.osc[len].stop(startTime + seconds);
+        }
+      });
+    }
+    stopFreq(firstIndex = 0, number = 1, delay = 0) {
+      for (var i = firstIndex; i < number; i++) {
+        if (this.osc[oscIndex]) {
+          this.osc[oscIndex].stop(this.ctx.currentTime + delay);
+        } else {
+          console.log("No oscillator found.");
+        }
+      }
+    }
+    addSounds(urlList = [""], onReady = (sourceListIdx, buffer2) => {
+    }, onBeginDecoding = () => {
+    }, canAddFile = false) {
+      if (typeof urlList === "string")
+        urlList = [urlList];
+      var bufferLoader = new BufferLoader(this, urlList, this.finishedLoading, onReady, onBeginDecoding);
+      bufferLoader.load(canAddFile);
+    }
+    copySound(soundbuffer) {
+      let buf = this.ctx.createBuffer(soundbuffer.buffers.length, soundbuffer.duration / soundbuffer.samplerate, soundbuffer.samplerate);
+      soundbuffer.buffers.forEach((b, j) => {
+        if (typeof b === "string")
+          buf.copyToChannel(Float32Array.from(textdecoder.decode(b)), j + 1, 0);
+        else
+          buf.copyToChannel(b, j + 1, 0);
+      });
+      let newSourceIndices = this.finishedLoading([buf]);
+      return newSourceIndices[0];
+    }
+    decodeLocalAudioFile(onReady = (sourceListIdx, buffer2) => {
+    }, onBeginDecoding = () => {
+    }) {
+      var input = document.createElement("input");
+      input.type = "file";
+      input.accept = "audio/*";
+      input.onchange = (e) => {
+        if (e.target.files.length !== 0) {
+          var file = e.target.files[0];
+          var fr = new FileReader();
+          fr.onload = (ev) => {
+            var fileResult = ev.target.result;
+            if (this.ctx === null) {
+              return;
+            }
+            ;
+            onBeginDecoding();
+            this.ctx.decodeAudioData(fileResult, (buffer2) => {
+              this.finishedLoading([buffer2]);
+              onReady(this.sourceList.length - 1, buffer2);
+            }, (er) => {
+              console.error(er);
+            });
+          };
+          fr.onerror = function(er) {
+            console.error(er);
+          };
+          fr.readAsArrayBuffer(file);
+        }
+      };
+      input.click();
+    }
+    playSound(bufferIndex, seconds = 0, repeat = false, startTime = this.ctx.currentTime) {
+      if (repeat === true) {
+        this.sourceList[bufferIndex].loop = true;
+      }
+      this.sourceList[bufferIndex].start(startTime);
+      if (seconds !== 0) {
+        this.sourceList[bufferIndex].stop(startTime + seconds);
+      }
+    }
+    stopSound(bufferIndex) {
+      if (this.sourceList[bufferIndex])
+        this.sourceList[bufferIndex].stop(0);
+    }
+    setPlaybackRate(bufferIndex, rate) {
+      if (this.sourceList[bufferIndex])
+        this.sourceList[bufferIndex].playbackRate.value = rate;
+    }
+    getAnalyzerData() {
+      var array = new Uint8Array(this.analyserNode.frequencyBinCount);
+      return this.analyserNode.getByteFrequencyData(array);
+    }
+    record(name = new Date().toISOString(), args = { audio: true, video: false }, type = null, streamElement = null, save = false, onbegin = () => {
+    }) {
+      var supported = null;
+      var ext = null;
+      var types = type;
+      if (types === null) {
+        if (args.video !== false) {
+          types = [
+            "video/webm",
+            "video/webm;codecs=vp8",
+            "video/webm;codecs=vp9",
+            "video/webm;codecs=vp8.0",
+            "video/webm;codecs=vp9.0",
+            "video/webm;codecs=h264",
+            "video/webm;codecs=H264",
+            "video/webm;codecs=avc1",
+            "video/webm;codecs=vp8,opus",
+            "video/WEBM;codecs=VP8,OPUS",
+            "video/webm;codecs=vp9,opus",
+            "video/webm;codecs=vp8,vp9,opus",
+            "video/webm;codecs=h264,opus",
+            "video/webm;codecs=h264,vp9,opus",
+            "video/x-matroska;codecs=avc1"
+          ];
+        } else if (args.audio === true) {
+          types = [
+            "audio/wav",
+            "audio/mp3",
+            "audio/webm",
+            "audio/webm;codecs=opus",
+            "audio/webm;codecs=pcm",
+            "audio/ogg",
+            "audio/x-matroska"
+          ];
+        }
+      }
+      for (var i = 0; i < types.length; i++) {
+        if (MediaRecorder.isTypeSupported(types[i]) === true) {
+          supported = types[i];
+          console.log("Supported type: ", supported);
+          if (types[i].indexOf("webm") !== -1) {
+            ext = ".webm";
+          }
+          if (types[i].indexOf("ogg") !== -1) {
+            ext = ".ogg";
+          }
+          if (types[i].indexOf("mp3") !== -1) {
+            ext = ".mp3";
+          }
+          if (types[i].indexOf("wav") !== -1) {
+            ext = ".wav";
+          }
+          if (types[i].indexOf("x-matroska") !== -1) {
+            ext = ".mkv";
+          }
+          break;
+        }
+      }
+      if (supported !== null) {
+        let errfunc = function(e) {
+          console.log(e);
+        };
+        navigator.mediaDevices.getUserMedia(args).then((recordingDevice) => {
+          console.log("Media stream created.");
+          if (supported.indexOf("audio") !== -1) {
+            let mic_src = this.ctx.createMediaStreamSource(recordingDevice);
+            let mic_gain = this.ctx.createGain();
+            this.sourceList.push(mic_src);
+            this.sourceGains.push(mic_gain);
+            mic_src.onended = () => {
+              mic_src.disconnect();
+              mic_gain.disconnect();
+              let l = 0, k = 0;
+              this.sourceList.find((o, j) => {
+                if (JSON.stringify(o) === JSON.stringify(mic_src)) {
+                  l = j;
+                  this.sourceList.splice(l, 1);
+                  return true;
+                }
+              });
+              this.sourceGains.find((o, j) => {
+                if (JSON.stringify(o) === JSON.stringify(mic_gain)) {
+                  k = j;
+                  this.sourceGains.splice(k, 1);
+                  return true;
+                }
+              });
+            };
+            mic_src.connect(mic_gain);
+            mic_gain.connect(this.analyserNode);
+          }
+          onbegin();
+          if (streamElement !== null) {
+            streamElement.src = window.URL.createObjectURL(recordingDevice);
+          }
+          if (save === true) {
+            this.recorder = new MediaRecorder(recordingDevice);
+            this.recorder.onstop = (e) => {
+              console.log("Media recorded, saving...");
+              var blob = new Blob(this.recordedData, {
+                type: supported
+              });
+              var url = URL.createObjectURL(blob);
+              var a = document.createElement("a");
+              document.body.appendChild(a);
+              a.style = "display: none";
+              a.href = url;
+              a.download = name + ext;
+              a.click();
+              window.URL.revokeObjectURL(url);
+            };
+            this.recorder.ondataavailable = (e) => {
+              this.recordedData.push(e.data);
+            };
+            this.recorder.start();
+          }
+        }, errfunc);
+        return this.sourceList.length;
+      } else {
+        alert("Cannot record! Check function call settings, ensure browser is compatible.");
+        return void 0;
+      }
+    }
+    replayRecording(streamElement) {
+      if (this.recordedData.length > 1) {
+        this.buffer = new Blob(this.recordedData);
+        streamElement.src = window.URL.createObjectURL(buffer);
+      }
+    }
+  };
+  var BufferLoader = class {
+    constructor(SoundJSInstance, urlList, callback, onReady = (sourceListIdx) => {
+    }, onBeginDecoding = () => {
+    }) {
+      __publicField(this, "onReady", (sourceListIdx) => {
+      });
+      __publicField(this, "onBeginDecoding", () => {
+      });
+      this.audio = SoundJSInstance;
+      this.ctx = this.audio.ctx;
+      this.urlList = urlList;
+      this.onload = callback;
+      this.bufferList = new Array();
+      this.loadCount = 0;
+      this.onBeginDecoding = onBeginDecoding;
+      this.onReady = onReady;
+    }
+    loadBuffer(url = "", index, canAddFile = false) {
+      var request = new XMLHttpRequest();
+      request.responseType = "arraybuffer";
+      var responseBuf = null;
+      if (url.length > 1) {
+        request.open("GET", url, true);
+        request.onreadystatechange = () => {
+          if (request.readyState === 4) {
+            if (request.status === 200 || request.status === 0) {
+              responseBuf = request.response;
+            }
+          }
+        };
+        var loader = this;
+        request.onload = () => {
+          this.onBeginDecoding();
+          loader.ctx.decodeAudioData(responseBuf, (buffer2) => {
+            if (!buffer2) {
+              alert("error decoding file data: " + url);
+              return;
+            }
+            loader.bufferList[index] = buffer2;
+            if (++loader.loadCount === loader.urlList.length)
+              loader.onload(loader.bufferList);
+            this.onReady(this.audio.sourceList.length - 1);
+          }, (error) => {
+            console.error("decodeAudioData error: " + error + ", from url: " + url);
+          });
+        };
+        request.onerror = function() {
+          alert("BufferLoader: XHR error");
+        };
+        request.send();
+      } else if (canAddFile) {
+        var loader = this;
+        var fr = new FileReader();
+        fr.onload = (e) => {
+          var fileResult = e.target.result;
+          var audioContext = loader.ctx;
+          if (audioContext === null) {
+            return;
+          }
+          console.log("Decoding audio...");
+          this.onBeginDecoding();
+          audioContext.decodeAudioData(fileResult, (buffer2) => {
+            if (!buffer2) {
+              alert("Error decoding file data: " + url);
+              return;
+            } else {
+              console.log("File decoded successfully!");
+            }
+            loader.bufferList[index] = buffer2;
+            if (++loader.loadCount === loader.urlList.length)
+              loader.onload(loader.bufferList);
+            this.onReady(this.audio.sourceList.length - 1);
+          }, (error) => {
+            console.error("decodeAudioData error: ", error);
+          });
+        };
+        fr.onerror = (e) => {
+          console.log(e);
+        };
+        var input = document.createElement("input");
+        input.type = "file";
+        input.multiple = true;
+        input.onchange = (e) => {
+          fr.readAsArrayBuffer(e.target.files[0]);
+          input.value = "";
+        };
+        input.click();
+      }
+    }
+    load(canAddFile = true) {
+      for (var i = 0; i < this.urlList.length; ++i)
+        this.loadBuffer(this.urlList[i], i, canAddFile);
+    }
+  };
+
+  // src/BreathCapture.js
+  var BreathCapture = class {
+    constructor(onUpdate = () => {
+    }, onBreath = () => {
+    }) {
+      __publicField(this, "analyze", () => {
+        if (this.analyzing === false) {
+          this.analyzing = true;
+          this.loop();
+        }
+      });
+      __publicField(this, "resetVars", () => {
+        this.audsum = 0;
+        this.peaksfast = [];
+        this.valsfast = [];
+        this.peaksslow = [];
+        this.valsslow = [];
+        this.peakslong = [];
+        this.valslong = [];
+        this.audSumGraph = new Array(1024).fill(0);
+        this.audSumSmoothedFast = new Array(1024).fill(0);
+        this.audSumSmoothedSlow = new Array(1024).fill(0);
+        this.audSumSmoothedLong = new Array(1024).fill(0);
+        this.audSpect = new Array(1024).fill(new Array(250).fill(0));
+        this.audTime = new Array(1024).fill(0);
+        this.lastInPeak = 0;
+        this.lastOutPeak = 0;
+        this.fastPeakTimes = [];
+        this.fastPeakDt = [];
+        this.slowPeakTimes = [];
+        this.longPeakTimes = [];
+        this.peakThreshold = 0;
+        this.wasBelowThreshold = false;
+        this.inPeakVolumes = [];
+        this.outPeakVolumes = [];
+        this.inPeakTimes = [];
+        this.outPeakTimes = [];
+        this.inToOutTimes = [];
+        this.breathingRate = [];
+        this.breathingRateVariability = [];
+        this.resetOutput();
+      });
+      __publicField(this, "resetOutput", () => {
+        this.output = {
+          belowThreshold: false,
+          isHolding: false,
+          inVolumes: this.inPeakVolumes,
+          outVolumes: this.outPeakVolumes,
+          inTimes: this.inPeakTimes,
+          outTimes: this.outPeakTimes,
+          inToOutTimes: this.inToOutTimes,
+          fastTimes: this.fastPeakTimes,
+          fastRate: this.fastPeakDt,
+          breathRate: this.breathingRate,
+          brv: this.breathingRateVariability,
+          audioFFT: [],
+          fastSmoothedVolume: this.audSumSmoothedFast,
+          slowSmoothedVolume: this.audSumSmoothedSlow,
+          longSmoothedVolume: this.audSumSmoothedLong
+        };
+      });
+      __publicField(this, "stop", () => {
+        this.analyzing = false;
+      });
+      __publicField(this, "peakDetect", (smoothedArray, type = "peak", window2 = 49) => {
+        let mid = Math.floor(window2 * 0.5);
+        let peaks = [];
+        for (let i = 0; i < smoothedArray.length - window2; i++) {
+          let isPeak = this.isExtrema(smoothedArray.slice(i, i + window2), type);
+          if (isPeak) {
+            peaks.push(i + mid - 1);
+          }
+        }
+        return peaks;
+      });
+      __publicField(this, "calibrate", () => {
+        if (this.slowPeakTimes.length > 0) {
+          this.inPeakTimes = [this.slowPeakTimes[this.slowPeakTimes.length - 1]];
+          this.outPeakTimes = [];
+          this.inPeakVolumes = [this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length - 1]]];
+          this.outPeakVolumes = [this.audSumSmoothedSlow[this.valsslow[this.valsslow.length - 1]]];
+          this.inToOutTimes = [];
+          this.breathingRate = [];
+          this.breathingRateVariability = [];
+          this.resetOutput();
+          this.output.isHolding = true;
+        }
+      });
+      __publicField(this, "onUpdate", () => {
+      });
+      __publicField(this, "onBreath", () => {
+      });
+      __publicField(this, "calcBreathing", () => {
+        this.output.audioFFT = this.getAudioData().slice(6);
+        this.audsum = this.sumAudioData();
+        this.audSumGraph.shift();
+        this.audSumGraph.push(this.audsum);
+        this.audSpect.shift();
+        this.audSpect.push(this.output.audioFFT);
+        this.audTime.shift();
+        this.audTime.push(Date.now());
+        let smoothedfast = this.mean(this.audSumGraph.slice(this.audSumGraph.length - 5));
+        this.audSumSmoothedFast.shift();
+        this.audSumSmoothedFast.push(smoothedfast);
+        let smoothedslow = this.mean(this.audSumGraph.slice(this.audSumGraph.length - 40));
+        this.audSumSmoothedSlow.shift();
+        this.audSumSmoothedSlow.push(smoothedslow);
+        let smoothed2 = this.mean(this.audSumGraph.slice(this.audSumGraph.length - 120));
+        this.audSumSmoothedLong.shift();
+        this.audSumSmoothedLong.push(smoothed2);
+        this.peaksfast = this.peakDetect(this.audSumSmoothedFast, "peak", 10);
+        this.valsfast = this.peakDetect(this.audSumSmoothedFast, "valley", 10);
+        this.peaksslow = this.peakDetect(this.audSumSmoothedSlow, "peak", 25);
+        this.valsslow = this.peakDetect(this.audSumSmoothedSlow, "valley", 25);
+        this.peakslong = this.peakDetect(this.audSumSmoothedLong, "peak", 80);
+        this.valslong = this.peakDetect(this.audSumSmoothedLong, "valley", 80);
+        let l1 = this.longPeakTimes.length;
+        let slowThreshold = 0;
+        if (l1 > 1) {
+          this.peakThreshold = this.getPeakThreshold(this.audSumSmoothedLong, this.peakslong, this.peakThreshold);
+          slowThreshold = this.getPeakThreshold(this.audSumSmoothedSlow, this.peaksslow, 0);
+          if (this.audSumSmoothedSlow[this.audSumSmoothedSlow.length - 1] < this.peakThreshold) {
+            this.wasBelowThreshold = true;
+          }
+        }
+        if (slowThreshold > this.peakThreshold || l1 < 2 || this.inPeakTimes.length > 0) {
+          if (this.output.belowThreshold === true)
+            this.output.belowThreshold = false;
+          if (this.fastPeakTimes[this.fastPeakTimes.length - 1] !== this.audTime[this.peaksfast[this.peaksfast.length - 1]]) {
+            this.fastPeakTimes.push(this.audTime[this.peaksfast[this.peaksfast.length - 1]]);
+            if (this.fastPeakTimes.length > 1) {
+              this.fastPeakDt.push(this.fastPeakTimes[this.fastPeakTimes.length - 1] - this.fastPeakTimes[this.fastPeakTimes.length - 2]);
+            }
+          }
+          if (this.slowPeakTimes[this.slowPeakTimes.length - 1] !== this.audTime[this.peaksslow[this.peaksslow.length - 1]]) {
+            this.slowPeakTimes.push(this.audTime[this.peaksslow[this.peaksslow.length - 1]]);
+            let l = this.longPeakTimes.length;
+            let s = this.slowPeakTimes.length;
+            let latestSlow = this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length - 1]];
+            let latestLong = this.audSumSmoothedLong[this.peakslong[this.peakslong.length - 1]];
+            if (l > 1 && s > 2 || this.inPeakTimes.length > 0) {
+              if (latestSlow > latestLong && (this.longPeakTimes[l - 1] <= this.slowPeakTimes[s - 1] || this.longPeakTimes[l - 1] - this.slowPeakTimes[s - 1] < 200) || this.inPeakTimes.length > 0 && this.outPeakTimes.length === 0) {
+                if ((this.inPeakTimes[this.inPeakTimes.length - 1] > this.outPeakTimes[this.outPeakTimes.length - 1] || this.inPeakTimes.length > 0 && this.outPeakTimes.length === 0) && this.wasBelowThreshold === true) {
+                  this.outPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.outPeakVolumes.push(latestSlow);
+                  if (this.inPeakTimes.length > 0)
+                    this.inToOutTimes.push(this.slowPeakTimes[s - 1] - this.inPeakTimes[this.inPeakTimes.length - 1]);
+                  if (this.inPeakTimes.length > 1 && this.outPeakTimes.length > 1) {
+                    this.breathingRate.push(0.5 * (this.inPeakTimes[this.inPeakTimes.length - 1] - this.inPeakTimes[this.inPeakTimes.length - 2] + (this.outPeakTimes[this.outPeakTimes.length - 1] - this.outPeakTimes[this.outPeakTimes.length - 2])));
+                    if (this.breathingRate.length > 1) {
+                      this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length - 1] - this.breathingRate[this.breathingRate.length - 2]));
+                    }
+                  }
+                  this.output.isHolding = false;
+                  this.wasBelowThreshold = false;
+                  this.onBreath();
+                } else if (this.inPeakTimes[this.inPeakTimes.length - 1] < this.outPeakTimes[this.outPeakTimes.length - 1] && this.inPeakTimes[this.inPeakTimes.length - 1] < this.longPeakTimes[l - 1] && this.wasBelowThreshold === true) {
+                  this.inPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.inPeakVolumes.push(latestSlow);
+                  this.output.isHolding = true;
+                  this.wasBelowThreshold = false;
+                }
+              }
+            }
+          }
+          if (this.longPeakTimes[this.longPeakTimes.length - 1] !== this.audTime[this.peakslong[this.peakslong.length - 1]]) {
+            this.longPeakTimes.push(this.audTime[this.peakslong[this.peakslong.length - 1]]);
+            let placeholder = this.inPeakTimes[this.inPeakTimes.length - 1];
+            if (placeholder == void 0)
+              placeholder = Date.now();
+            let l = this.longPeakTimes.length;
+            let s = this.slowPeakTimes.length;
+            let latestSlow = this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length - 1]];
+            let latestLong = this.audSumSmoothedLong[this.peakslong[this.peakslong.length - 1]];
+            if (l > 1 && s > 2 && latestSlow > latestLong && (this.inPeakTimes.length === 0 && this.outPeakTimes.length === 0 || Date.now() - placeholder > 2e4)) {
+              if ((this.longPeakTimes[l - 2] <= this.slowPeakTimes[s - 2] || this.longPeakTimes[l - 2] - this.slowPeakTimes[s - 2] < 200 || this.longPeakTimes[l - 2] - this.slowPeakTimes[s - 2] < 200) && (this.longPeakTimes[l - 1] >= this.slowPeakTimes[s - 1] || this.longPeakTimes[l - 1] - this.slowPeakTimes[s - 1] < 200)) {
+                if (this.longPeakTimes[l - 2] < this.slowPeakTimes[s - 3]) {
+                  this.inPeakTimes.push(this.slowPeakTimes[s - 2]);
+                  this.outPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.inPeakVolumes.push(this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length - 2]]);
+                  this.outPeakVolumes.push(latestSlow);
+                  this.inToOutTimes.push(this.slowPeakTimes[s - 1] - this.slowPeakTimes[s - 2]);
+                  if (this.inPeakTimes.length > 1 && this.outPeakTimes.length > 1) {
+                    this.breathingRate.push(0.5 * (this.inPeakTimes[this.inPeakTimes.length - 1] - this.inPeakTimes[this.inPeakTimes.length - 2] + (this.outPeakTimes[this.outPeakTimes.length - 1] - this.outPeakTimes[this.outPeakTimes.length - 2])));
+                    if (this.breathingRate.length > 1) {
+                      this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length - 1] - this.breathingRate[this.breathingRate.length - 2]));
+                    }
+                  }
+                  this.onBreath();
+                } else {
+                  this.inPeakTimes.push(this.slowPeakTimes[s - 2]);
+                  this.outPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.inPeakVolumes.push(this.audSumSmoothedSlow[this.peaksslow[this.peaksslow.length - 2]]);
+                  this.outPeakVolumes.push(latestSlow);
+                  this.inToOutTimes.push(this.slowPeakTimes[s - 1] - this.slowPeakTimes[s - 2]);
+                  if (this.inPeakTimes.length > 1 && this.outPeakTimes.length > 1) {
+                    this.breathingRate.push(0.5 * (this.inPeakTimes[this.inPeakTimes.length - 1] - this.inPeakTimes[this.inPeakTimes.length - 2] + (this.outPeakTimes[this.outPeakTimes.length - 1] - this.outPeakTimes[this.outPeakTimes.length - 2])));
+                    if (this.breathingRate.length > 1) {
+                      this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length - 1] - this.breathingRate[this.breathingRate.length - 2]));
+                    }
+                  }
+                  this.onBreath();
+                }
+              } else if (this.longPeakTimes[l - 1] <= this.slowPeakTimes[s - 1] || this.longPeakTimes[l - 1] - this.slowPeakTimes[s - 1] < 200) {
+                if (this.inPeakTimes[this.inPeakTimes.length - 1] > this.outPeakTimes[this.outPeakTimes.length - 1] && this.wasBelowThreshold === true) {
+                  this.outPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.outPeakVolumes.push(latestSlow);
+                  if (this.inPeakTimes.length > 0)
+                    this.inToOutTimes.push(this.slowPeakTimes[s - 1] - this.inPeakTimes[this.inPeakTimes.length - 1]);
+                  if (this.inPeakTimes.length > 1 && this.outPeakTimes.length > 1) {
+                    this.breathingRate.push(0.5 * (this.inPeakTimes[this.inPeakTimes.length - 1] - this.inPeakTimes[this.inPeakTimes.length - 2] + (this.outPeakTimes[this.outPeakTimes.length - 1] - this.outPeakTimes[this.outPeakTimes.length - 2])));
+                    if (this.breathingRate.length > 1) {
+                      this.breathingRateVariability.push(Math.abs(this.breathingRate[this.breathingRate.length - 1] - this.breathingRate[this.breathingRate.length - 2]));
+                    }
+                  }
+                  this.wasBelowThreshold = false;
+                  this.onBreath();
+                } else if (this.inPeakTimes[this.inPeakTimes.length - 1] < this.outPeakTimes[this.outPeakTimes.length - 1] && this.inPeakTimes[this.inPeakTimes.length - 1] < this.longPeakTimes[l - 1] && this.wasBelowThreshold === true) {
+                  this.inPeakTimes.push(this.slowPeakTimes[s - 1]);
+                  this.inPeakVolumes.push(latestSlow);
+                  this.output.isHolding = true;
+                  this.wasBelowThreshold = false;
+                }
+              }
+            }
+          }
+        } else if (slowThreshold < this.peakThreshold) {
+          if (!this.output.belowThreshold)
+            this.output.belowThreshold = true;
+        }
+      });
+      __publicField(this, "loop", () => {
+        if (this.analyzing === true) {
+          this.calcBreathing();
+          this.onUpdate();
+          setTimeout(() => {
+            this.loop();
+          }, 15);
+        }
+      });
+      this.effects = [];
+      this.fxStruct = { sourceIdx: void 0, source: void 0, playing: false, id: void 0 };
+      this.onUpdate = onUpdate;
+      this.onBreath = onBreath;
+      this.audsum = 0;
+      this.peaksfast = [];
+      this.valsfast = [];
+      this.peaksslow = [];
+      this.valsslow = [];
+      this.peakslong = [];
+      this.valslong = [];
+      this.audSumGraph = new Array(1024).fill(0);
+      this.audSumSmoothedFast = new Array(1024).fill(0);
+      this.audSumSmoothedSlow = new Array(1024).fill(0);
+      this.audSumSmoothedLong = new Array(1024).fill(0);
+      this.audSpect = new Array(1024).fill(new Array(512).fill(0));
+      this.audTime = new Array(1024).fill(0);
+      this.lastInPeak = 0;
+      this.lastOutPeak = 0;
+      this.fastPeakTimes = [];
+      this.fastPeakDt = [];
+      this.slowPeakTimes = [];
+      this.longPeakTimes = [];
+      this.peakThreshold = 0;
+      this.wasBelowThreshold = false;
+      this.inPeakVolumes = [];
+      this.outPeakVolumes = [];
+      this.inPeakTimes = [];
+      this.outPeakTimes = [];
+      this.inToOutTimes = [];
+      this.breathingRate = [];
+      this.breathingRateVariability = [];
+      this.output = {
+        belowThreshold: false,
+        isHolding: false,
+        inVolumes: this.inPeakVolumes,
+        outVolumes: this.outPeakVolumes,
+        inTimes: this.inPeakTimes,
+        outTimes: this.outPeakTimes,
+        inToOutTimes: this.inToOutTimes,
+        fastTimes: this.fastPeakTimes,
+        fastRate: this.fastPeakDt,
+        breathRate: this.breathingRate,
+        brv: this.breathingRateVariability,
+        audioFFT: [],
+        fastSmoothedVolume: this.audSumSmoothedFast,
+        slowSmoothedVolume: this.audSumSmoothedSlow,
+        longSmoothedVolume: this.audSumSmoothedLong
+      };
+      this.analyzing = false;
+    }
+    connectMic() {
+      if (this.effects.length === 0) {
+        if (!window.audio)
+          window.audio = new SoundJS();
+        if (window.audio.ctx === null) {
+          return;
+        }
+        ;
+        let fx = JSON.parse(JSON.stringify(this.fxStruct));
+        fx.sourceIdx = window.audio.record(void 0, void 0, null, null, false, () => {
+          if (fx.sourceIdx !== void 0) {
+            fx.source = window.audio.sourceList[window.audio.sourceList.length - 1];
+            fx.playing = true;
+            fx.id = "Micin";
+          }
+        });
+        this.effects.push(fx);
+        try {
+          window.audio.gainNode.disconnect(window.audio.analyserNode);
+          window.audio.analyserNode.disconnect(window.audio.out);
+          window.audio.gainNode.connect(window.audio.out);
+        } catch (er) {
+        }
+        return fx;
+      }
+    }
+    stopMic() {
+      if (this.effects.length === 1) {
+        let idx;
+        let found = this.effects.find((o, i) => {
+          if (o.id === "Micin") {
+            idx = i;
+            return true;
+          }
+        });
+        if (found) {
+          found.source.mediaStream.getTracks()[0].stop();
+          this.effects.splice(idx, 1);
+        }
+        try {
+          window.audio.gainNode.disconnect(window.audio.out);
+          window.audio.gainNode.connect(window.audio.analyserNode);
+          window.audio.analyserNode.connect(window.audio.out);
+        } catch (er) {
+        }
+      }
+    }
+    getAudioData() {
+      let audioDat = [];
+      if (window.audio) {
+        var array = new Uint8Array(window.audio.analyserNode.frequencyBinCount);
+        window.audio.analyserNode.getByteFrequencyData(array);
+        audioDat = this.reduceArrByFactor(Array.from(array), 4);
+      } else {
+        audioDat = new Array(512).fill(0);
+      }
+      return audioDat;
+    }
+    sum(arr = []) {
+      if (arr.length > 0) {
+        var sum = arr.reduce((prev, curr) => curr += prev);
+        return sum;
+      } else {
+        return 0;
+      }
+    }
+    mean(arr = []) {
+      if (arr.length > 0) {
+        var sum = arr.reduce((prev, curr) => curr += prev);
+        return sum / arr.length;
+      } else {
+        return 0;
+      }
+    }
+    reduceArrByFactor(arr, factor = 2) {
+      let x = arr.filter((element, index) => {
+        return index % factor === 0;
+      });
+      return x;
+    }
+    sma(arr, window2) {
+      var smaArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        if (i == 0) {
+          smaArr.push(arr[0]);
+        } else if (i < window2) {
+          var arrslice = arr.slice(0, i + 1);
+          smaArr.push(arrslice.reduce((previous, current) => current += previous) / (i + 1));
+        } else {
+          var arrslice = arr.slice(i - window2, i);
+          smaArr.push(arrslice.reduce((previous, current) => current += previous) / window2);
+        }
+      }
+      return smaArr;
+    }
+    sumAudioData() {
+      let audioDat = this.getAudioData();
+      let sum = this.sum(audioDat);
+      return sum;
+    }
+    makeArr(startValue, stopValue, nSteps) {
+      var arr = [];
+      var step = (stopValue - startValue) / (nSteps - 1);
+      for (var i = 0; i < nSteps; i++) {
+        arr.push(startValue + step * i);
+      }
+      return arr;
+    }
+    isExtrema(arr, critical = "peak") {
+      let ref = [...arr];
+      if (ref.length % 2 === 0)
+        ref.pop();
+      if (arr.length > 1) {
+        let pass = true;
+        for (let i = 0; i < ref.length; i++) {
+          let val = ref[i];
+          if (critical === "peak") {
+            if (i < Math.floor(ref.length * 0.5) && val >= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            } else if (i > Math.floor(ref.length * 0.5) && val >= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            }
+          } else if (critical === "valley") {
+            if (i < Math.floor(ref.length * 0.5) && val <= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            } else if (i > Math.floor(ref.length * 0.5) && val <= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            }
+          } else {
+            if (i < Math.floor(ref.length * 0.5) && val <= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            } else if (i > Math.floor(ref.length * 0.5) && val <= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            }
+          }
+        }
+        if (critical !== "peak" && critical !== "valley" && pass === false) {
+          pass = true;
+          for (let i = 0; i < ref.length; i++) {
+            let val = ref[i];
+            if (i < Math.floor(ref.length * 0.5) && val >= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            } else if (i > Math.floor(ref.length * 0.5) && val >= ref[Math.floor(ref.length * 0.5)]) {
+              pass = false;
+              break;
+            }
+          }
+        }
+        return pass;
+      } else
+        return void 0;
+    }
+    isCriticalPoint(arr, critical = "peak") {
+      let ref = [...arr];
+      if (ref.length % 2 === 0)
+        ref.pop();
+      if (arr.length > 1) {
+        let pass = true;
+        for (let i = 0; i < ref.length; i++) {
+          let val = ref[i];
+          if (critical === "peak") {
+            if (i < ref.length * 0.5 && val <= 0) {
+              pass = false;
+              break;
+            } else if (i > ref.length * 0.5 && val > 0) {
+              pass = false;
+              break;
+            }
+          } else if (critical === "valley") {
+            if (i < ref.length * 0.5 && val >= 0) {
+              pass = false;
+              break;
+            } else if (i > ref.length * 0.5 && val < 0) {
+              pass = false;
+              break;
+            }
+          } else {
+            if (i < ref.length * 0.5 && val >= 0) {
+              pass = false;
+              break;
+            } else if (i > ref.length * 0.5 && val < 0) {
+              pass = false;
+              break;
+            }
+          }
+        }
+        if (critical !== "peak" && critical !== "valley" && pass === false) {
+          pass = true;
+          for (let i = 0; i < ref.length; i++) {
+            let val = ref[i];
+            if (i < ref.length * 0.5 && val <= 0) {
+              pass = false;
+              break;
+            } else if (i > ref.length * 0.5 && val > 0) {
+              pass = false;
+              break;
+            }
+          }
+        }
+        return pass;
+      } else
+        return void 0;
+    }
+    interpolateArray(data, fitCount, normalize = 1) {
+      var norm = normalize;
+      var linearInterpolate = function(before2, after2, atPoint2) {
+        return (before2 + (after2 - before2) * atPoint2) * norm;
+      };
+      var newData = new Array();
+      var springFactor = new Number((data.length - 1) / (fitCount - 1));
+      newData[0] = data[0];
+      for (var i = 1; i < fitCount - 1; i++) {
+        var tmp = i * springFactor;
+        var before = new Number(Math.floor(tmp)).toFixed();
+        var after = new Number(Math.ceil(tmp)).toFixed();
+        var atPoint = tmp - before;
+        newData[i] = linearInterpolate(data[before], data[after], atPoint);
+      }
+      newData[fitCount - 1] = data[data.length - 1];
+      return newData;
+    }
+    getPeakThreshold(arr, peakIndices, thresholdVar = 0) {
+      let threshold;
+      let filtered = arr.filter((o, i) => {
+        if (peakIndices.indexOf(i) > -1)
+          return true;
+      });
+      if (thresholdVar === 0) {
+        threshold = this.mean(filtered);
+      } else
+        threshold = (thresholdVar + this.mean(filtered)) * 0.5;
+      return threshold;
+    }
+  };
+
+  // src/BreathTrainerApplet.js
+  var BreathTrainerApplet = class {
+    constructor(parent = document.body) {
+      __publicField(this, "drawAudio", () => {
+        this.lastFrame = this.currentFrame;
+        this.currentFrame = performance.now();
+        this.fps = (this.currentFrame - this.lastFrame) * 1e-3;
+        let height = this.canvas.height;
+        let width = this.canvas.width;
+        let audInterval = this.fps;
+        this.timeScaled += audInterval + (width / 1024 - this.fps);
+        this.time += this.fps;
+        let freq = this.currentFrequency;
+        let amp = this.currentFrequencyMap.map[this.currentMapIndex].amplitude + height / 4;
+        this.ctx2.clearRect(0, 0, width, height);
+        let x = width - 1;
+        let sineAmp = Math.sin((x + this.timeScaled + width) / (width * freq));
+        let amplitude = height * 0.5 + amp * sineAmp;
+        this.amplitudesY.shift();
+        this.amplitudesY.push(amplitude);
+        this.ctx2.strokeStyle = "limegreen";
+        this.ctx2.beginPath();
+        this.ctx2.moveTo(-10, this.amplitudesY[0]);
+        this.amplitudesY.forEach((a, i) => {
+          if (i > 0) {
+            this.ctx2.lineTo(this.amplitudesX[i], a + height * 0.2);
+          }
+        });
+        this.ctx2.stroke();
+        if (this.currentFrequency !== this.currentFrequencyMap.map[this.currentMapIndex].frequency) {
+          this.currentFrequency = this.currentFrequencyMap.map[this.currentMapIndex].frequency;
+        }
+        if (this.currentFrequency === this.currentFrequencyMap.map[this.currentMapIndex].frequency) {
+          let timeaccum = 0;
+          let duration = this.currentFrequencyMap.duration;
+          for (let i = 0; i < this.currentMapIndex + 1; i++) {
+            timeaccum += this.currentFrequencyMap.map[i].duration;
+          }
+          if (this.time > timeaccum + duration * this.rounds + this.latentTime) {
+            if (this.currentMapIndex === this.currentFrequencyMap.map.length - 1) {
+              this.currentMapIndex = 0;
+              this.rounds++;
+            } else {
+              this.currentMapIndex++;
+            }
+          }
+        }
+        let foundidx = void 0;
+        let found = this.Capture.inPeakTimes.find((t, k) => {
+          if (t > this.Capture.audTime[0]) {
+            foundidx = k;
+            return true;
+          }
+        });
+        if (foundidx) {
+          let inpeakindices = [];
+          let intimes = this.Capture.audTime.filter((o, z) => {
+            if (this.Capture.inPeakTimes.slice(this.Capture.inPeakTimes.length - foundidx).indexOf(o) > -1) {
+              inpeakindices.push(z);
+              return true;
+            }
+          });
+          this.inpeaks = inpeakindices;
+          let foundidx2 = void 0;
+          let found2 = this.Capture.outPeakTimes.find((t, k) => {
+            if (t > this.Capture.audTime[0]) {
+              foundidx2 = k;
+              return true;
+            }
+          });
+          if (foundidx2) {
+            let outpeakindices = [];
+            let outtimes = this.Capture.audTime.filter((o, z) => {
+              if (this.Capture.outPeakTimes.slice(this.Capture.outPeakTimes.length - foundidx2).indexOf(o) > -1) {
+                outpeakindices.push(z);
+                return true;
+              }
+            });
+            this.outpeaks = outpeakindices;
+          }
+        } else {
+          let inpeakindices = [];
+          let intimes = this.Capture.audTime.filter((o, z) => {
+            if (this.Capture.inPeakTimes.indexOf(o) > -1) {
+              inpeakindices.push(z);
+              return true;
+            }
+          });
+          let outpeakindices = [];
+          let outtimes = this.Capture.audTime.filter((o, z) => {
+            if (this.Capture.outPeakTimes.indexOf(o) > -1) {
+              outpeakindices.push(z);
+              return true;
+            }
+          });
+          this.inpeaks = inpeakindices;
+          this.outpeaks = outpeakindices;
+        }
+        let xaxis = this.makeArr(0, this.canvas.width, this.Capture.output.audioFFT.length);
+        let xaxis2 = this.makeArr(0, this.canvas.width, this.Capture.audSumGraph.length);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.linewidth = 2;
+        this.ctx.moveTo(0, this.canvas.height - this.Capture.output.audioFFT[0]);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "royalblue";
+        this.Capture.output.audioFFT.forEach((amp2, i) => {
+          if (i > 0) {
+            this.ctx.lineTo(xaxis[i], this.canvas.height - amp2 * (this.canvas.height / 255));
+          }
+        });
+        this.ctx.stroke();
+        this.ctx.linewidth = 3;
+        this.ctx.moveTo(0, this.canvas.height - this.Capture.audSumGraph[0]);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "red";
+        this.Capture.audSumGraph.forEach((amp2, i) => {
+          if (i > 0) {
+            this.ctx.lineTo(xaxis2[i], this.canvas.height - amp2 * (this.canvas.height / Math.max(...this.Capture.audSumGraph)));
+          }
+        });
+        this.ctx.stroke();
+        this.ctx.moveTo(0, this.canvas.height - this.Capture.audSumSmoothedFast[0]);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "orange";
+        this.Capture.audSumSmoothedFast.forEach((amp2, i) => {
+          if (i > 0) {
+            this.ctx.lineTo(xaxis2[i], this.canvas.height - amp2 * (this.canvas.height / Math.max(...this.Capture.audSumGraph)));
+          }
+        });
+        this.ctx.stroke();
+        this.ctx.moveTo(0, this.canvas.height - this.Capture.audSumSmoothedSlow[0]);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "gold";
+        this.Capture.audSumSmoothedSlow.forEach((amp2, i) => {
+          if (i > 0) {
+            this.ctx.lineTo(xaxis2[i], this.canvas.height - amp2 * (this.canvas.height / Math.max(...this.Capture.audSumGraph)));
+          }
+        });
+        this.ctx.stroke();
+        this.ctx.moveTo(0, this.canvas.height - this.Capture.audSumSmoothedLong[0]);
+        this.ctx.beginPath();
+        this.ctx.strokeStyle = "yellow";
+        this.Capture.audSumSmoothedLong.forEach((amp2, i) => {
+          if (i > 0) {
+            this.ctx.lineTo(xaxis2[i], this.canvas.height - amp2 * (this.canvas.height / Math.max(...this.Capture.audSumGraph)));
+          }
+        });
+        this.ctx.stroke();
+        this.ctx.fillStyle = "chartreuse";
+        this.inpeaks.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedSlow[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+        this.ctx.fillStyle = "green";
+        this.outpeaks.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedSlow[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+        this.ctx.fillStyle = "pink";
+        this.Capture.peakslong.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedLong[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+        this.ctx.fillStyle = "purple";
+        this.Capture.valslong.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedLong[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+        this.ctx.fillStyle = "red";
+        this.Capture.peaksfast.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedFast[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+        this.ctx.fillStyle = "crimson";
+        this.Capture.valsfast.forEach((pidx) => {
+          this.ctx.beginPath();
+          this.ctx.arc(xaxis2[pidx], this.canvas.height - this.Capture.audSumSmoothedFast[pidx] * (this.canvas.height / Math.max(...this.Capture.audSumGraph)), 5, 0, Math.PI * 2, true);
+          this.ctx.closePath();
+          this.ctx.fill();
+        });
+      });
+      __publicField(this, "animate", () => {
+        this.drawAudio();
+        if (this.animating)
+          setTimeout(() => {
+            this.animate();
+          }, 15);
+      });
+      this.parentNode = parent;
+      this.AppletHTML = null;
+      this.props = {
+        id: String(Math.floor(Math.random() * 1e6))
+      };
+      this.canvas;
+      this.ctx;
+      this.canvas2;
+      this.ctx2;
+      this.offscreen = null;
+      this.offscreenctx = null;
+      this.mode = "dvb";
+      this.animation = "sine";
+      this.fs = 10;
+      this.amplitudes = [];
+      this.startTime = void 0;
+      this.rounds = 0;
+      this.lastFrame = 0;
+      this.latentTime = 0;
+      this.currentFrame = 0;
+      this.time = 0;
+      this.fps = 60;
+      this.thisFrame = Date.now();
+      this.frequencyMaps = [
+        { type: "diaphragmatic", duration: 60, map: [{ frequency: 0.1, amplitude: 2, duration: 60 }] },
+        { type: "breathhold", duration: 60, map: [{ frequency: 0.1, amplitude: 2, duration: 5 }, { frequency: 0, amplitude: 1, duration: 10 }, { frequency: 0.1, amplitude: 2, duration: 5 }] },
+        { type: "wimhof", duration: 60, map: [{ frequency: 0.01, amplitude: 1, duration: 30 }, { frequency: 0.1, amplitude: 2, duration: 30 }] },
+        { type: "relaxation", duration: 60, map: [{ frequency: 0.08, amplitude: 2, duration: 60 }] },
+        { type: "jacobsons", duration: 60, map: [{ frequency: 0.08, amplitude: 2, duration: 60 }] }
+      ];
+      this.currentFrequencyMap = { type: "diaphragmatic", map: [{ frequency: 0.1, amplitude: 2, duration: 60 }] };
+      this.currentFrequency = 0.1;
+      this.currentMapIndex = 0;
+      this.lastAmplitude = 0;
+      this.timeScaled = 0;
+      this.amplitudesY = new Array(1024).fill(0);
+      this.amplitudesX = new Array(1024).fill(0);
+      this.scaling = 10;
+      this.animating = false;
+      this.step = -4;
+      this.Capture = new BreathCapture();
+    }
+    init() {
+      let HTMLtemplate = (props = this.props) => {
+        return `
+            <div id='${props.id}' style='height:100vh; width:100vw; background-color:#101010;'>
+                <div id='${props.id}menu'>
+                    <button id='${props.id}startmic'>Start Mic</button>
+                    <button id='${props.id}stopmic'>Stop Mic</button>
+                    <button id='${props.id}calibrate'>Calibrate (Breathe-in then click after ~1 sec)</button>
+                    <select id='${props.id}select'>
                         <option value='none'>None</option>
                         <option value='diaphragmatic' selected>Diaphragmatic</option>
                         <option value='breathhold'>Breath Hold</option>
@@ -23,9 +2386,96 @@ WebSocket output:\r
                         <option value='wimhof'>Wim Hof Method</option>
                     </select>
                 </div> 
-                <canvas id='${i.id}sinecanvas' style='position:absolute;width:100%;height:100%;'></canvas>
-                <canvas id='${i.id}canvas' style='width:100%;height:100%;background-color:rgba(0,0,0,0);'></canvas>
-            </div>`,t=(i=this.props)=>{this.canvas=document.getElementById(i.id+"canvas"),this.ctx=this.canvas.getContext("2d"),this.canvas2=document.getElementById(i.id+"sinecanvas"),this.ctx2=this.canvas2.getContext("2d"),this.offscreen=new OffscreenCanvas(this.canvas.width,this.canvas.height),this.offscreenctx=this.offscreen.getContext("2d"),this.yscaling=this.canvas.height*.2,this.xscaling=this.canvas.width*.1,document.getElementById(i.id+"select").onchange=s=>{let n=s.target.value;if(n==="none")this.canvas2.style.display="none";else{this.canvas2.style.display="";let h=this.frequencyMaps.find(o=>{if(o.type===n)return!0});h&&(this.currentFrequencyMap=h)}this.time=0,this.timeScaled=0},document.getElementById(i.id+"startmic").onclick=()=>{this.Capture.analyze(),this.Capture.connectMic()},document.getElementById(i.id+"stopmic").onclick=()=>{this.Capture.stopMic()},document.getElementById(i.id+"calibrate").onclick=()=>{this.Capture.calibrate()},this.animating=!0,this.animate()};this.AppletHTML=new P(e,this.parentNode,this.props,t,void 0,"NEVER"),setTimeout(()=>{this.responsive()},300)}deinit(){this.animating=!1,this.Capture.stop(),this.AppletHTML.deleteNode()}responsive(){this.canvas.width=this.AppletHTML.node.clientWidth,this.canvas.height=this.AppletHTML.node.clientHeight,this.canvas2.width=this.AppletHTML.node.clientWidth,this.canvas2.height=this.AppletHTML.node.clientHeight,this.offscreen.width=this.AppletHTML.node.clientWidth,this.offscreen.height=this.AppletHTML.node.clientHeight,this.yscaling=this.canvas.height*.2,this.xscaling=this.canvas.width*.1,this.amplitudesY[0]===0&&(this.amplitudesY=new Array(1024).fill(this.canvas2.height)),this.amplitudesX=new Array(1024).fill(0),this.amplitudesX.forEach((e,t)=>{this.amplitudesX[t]=t/1023*this.canvas2.width})}configure(e=[]){e.forEach((t,i)=>{})}makeArr(e,t,i){for(var s=[],n=(t-e)/(i-1),h=0;h<i;h++)s.push(e+n*h);return s}};var z=new F;console.log(z);z.init();window.addEventListener("resize",c=>{z.responsive()});})();
+                <canvas id='${props.id}sinecanvas' style='position:absolute;width:100%;height:100%;'></canvas>
+                <canvas id='${props.id}canvas' style='width:100%;height:100%;background-color:rgba(0,0,0,0);'></canvas>
+            </div>`;
+      };
+      let setupHTML = (props = this.props) => {
+        this.canvas = document.getElementById(props.id + "canvas");
+        this.ctx = this.canvas.getContext("2d");
+        this.canvas2 = document.getElementById(props.id + "sinecanvas");
+        this.ctx2 = this.canvas2.getContext("2d");
+        this.offscreen = new OffscreenCanvas(this.canvas.width, this.canvas.height);
+        this.offscreenctx = this.offscreen.getContext("2d");
+        this.yscaling = this.canvas.height * 0.2;
+        this.xscaling = this.canvas.width * 0.1;
+        document.getElementById(props.id + "select").onchange = (event) => {
+          let t = event.target.value;
+          if (t === "none") {
+            this.canvas2.style.display = "none";
+          } else {
+            this.canvas2.style.display = "";
+            let found = this.frequencyMaps.find((o) => {
+              if (o.type === t)
+                return true;
+            });
+            if (found)
+              this.currentFrequencyMap = found;
+          }
+          this.time = 0;
+          this.timeScaled = 0;
+        };
+        document.getElementById(props.id + "startmic").onclick = () => {
+          this.Capture.analyze();
+          this.Capture.connectMic();
+        };
+        document.getElementById(props.id + "stopmic").onclick = () => {
+          this.Capture.stopMic();
+        };
+        document.getElementById(props.id + "calibrate").onclick = () => {
+          this.Capture.calibrate();
+        };
+        this.animating = true;
+        this.animate();
+      };
+      this.AppletHTML = new DOMFragment(HTMLtemplate, this.parentNode, this.props, setupHTML, void 0, "NEVER");
+      setTimeout(() => {
+        this.responsive();
+      }, 300);
+    }
+    deinit() {
+      this.animating = false;
+      this.Capture.stop();
+      this.AppletHTML.deleteNode();
+    }
+    responsive() {
+      this.canvas.width = this.AppletHTML.node.clientWidth;
+      this.canvas.height = this.AppletHTML.node.clientHeight;
+      this.canvas2.width = this.AppletHTML.node.clientWidth;
+      this.canvas2.height = this.AppletHTML.node.clientHeight;
+      this.offscreen.width = this.AppletHTML.node.clientWidth;
+      this.offscreen.height = this.AppletHTML.node.clientHeight;
+      this.yscaling = this.canvas.height * 0.2;
+      this.xscaling = this.canvas.width * 0.1;
+      if (this.amplitudesY[0] === 0)
+        this.amplitudesY = new Array(1024).fill(this.canvas2.height);
+      this.amplitudesX = new Array(1024).fill(0);
+      this.amplitudesX.forEach((x, i) => {
+        this.amplitudesX[i] = i / 1023 * this.canvas2.width;
+      });
+    }
+    configure(settings3 = []) {
+      settings3.forEach((cmd, i) => {
+      });
+    }
+    makeArr(startValue, stopValue, nSteps) {
+      var arr = [];
+      var step = (stopValue - startValue) / (nSteps - 1);
+      for (var i = 0; i < nSteps; i++) {
+        arr.push(startValue + step * i);
+      }
+      return arr;
+    }
+  };
+
+  // src/app.js
+  var trainer = new BreathTrainerApplet();
+  console.log(trainer);
+  trainer.init();
+  window.addEventListener("resize", (ev) => {
+    trainer.responsive();
+  });
+})();
 //# sourceMappingURL=app.js.map
 
           </script>
