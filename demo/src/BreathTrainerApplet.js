@@ -1,5 +1,5 @@
 import {DOMFragment} from './DOMFragment.js'
-import { BreathCapture } from './BreathCapture.js'
+import { BreathCapture } from '../../src/index.js'
 
 
 //Example Applet for integrating with the UI Manager
