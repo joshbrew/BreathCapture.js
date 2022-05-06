@@ -2,3 +2,6 @@ demo/node_modules
 demo/dist
 demo/node_server/ssl/key.pem
 demo/node_server/ssl/cert.pem
+node_modules
+**/*.lock
+**/*-lock.json
